@@ -1,9 +1,9 @@
 package tibia.container
 {
-   import tibia.container.bodyContainerViewWigdetClasses.BodyContainerViewWidgetView;
-   import tibia.creatures.Player;
    import tibia.sidebar.Widget;
    import tibia.sidebar.sideBarWidgetClasses.WidgetView;
+   import tibia.container.bodyContainerViewWigdetClasses.BodyContainerViewWidgetView;
+   import tibia.creatures.Player;
    
    public class BodyContainerViewWidget extends Widget
    {
@@ -11,7 +11,7 @@ package tibia.container
       
       protected var m_Player:Player = null;
       
-      protected var m_BodyContainer:BodyContainerView = null;
+      protected var m_BodyContainer:tibia.container.BodyContainerView = null;
       
       public function BodyContainerViewWidget()
       {
@@ -60,7 +60,7 @@ package tibia.container
          super.releaseViewInstance();
       }
       
-      public function set bodyContainer(param1:BodyContainerView) : void
+      public function set bodyContainer(param1:tibia.container.BodyContainerView) : void
       {
          if(this.m_BodyContainer != param1)
          {
@@ -72,7 +72,7 @@ package tibia.container
          }
       }
       
-      public function get bodyContainer() : BodyContainerView
+      public function get bodyContainer() : tibia.container.BodyContainerView
       {
          return this.m_BodyContainer;
       }

@@ -1,23 +1,23 @@
 package tibia.creatures.unjustPointsWidgetClasses
 {
-   import flash.display.Bitmap;
-   import flash.display.BitmapData;
+   import tibia.sidebar.sideBarWidgetClasses.WidgetView;
    import flash.geom.Point;
    import flash.geom.Rectangle;
-   import mx.containers.HBox;
+   import flash.display.BitmapData;
+   import flash.display.Bitmap;
    import mx.controls.Image;
    import mx.controls.Label;
-   import mx.core.EdgeMetrics;
-   import mx.core.ScrollPolicy;
-   import mx.events.PropertyChangeEvent;
-   import mx.utils.StringUtil;
-   import shared.utility.StringHelper;
    import tibia.creatures.CreatureStorage;
-   import tibia.creatures.Player;
+   import shared.utility.StringHelper;
+   import mx.utils.StringUtil;
    import tibia.creatures.UnjustPointsInfo;
-   import tibia.sidebar.sideBarWidgetClasses.WidgetView;
+   import tibia.creatures.Player;
+   import mx.containers.HBox;
+   import mx.core.EdgeMetrics;
+   import mx.events.PropertyChangeEvent;
    import tibia.§sidebar:ns_sidebar_internal§.widgetClosed;
    import tibia.§sidebar:ns_sidebar_internal§.widgetCollapsed;
+   import mx.core.ScrollPolicy;
    
    public class UnjustPointsWidgetView extends WidgetView
    {
@@ -60,13 +60,11 @@ package tibia.creatures.unjustPointsWidgetClasses
       
       private static const OPEN_SITUATIONS_POINT:Point = new Point(3,10);
       
-      protected static const TYPE_SUMMON_OTHERS:int = 4;
+      protected static const TYPE_NPC:int = 2;
       
-      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_EMBRACE_OF_TIBIA << 1;
+      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_SPARK_OF_PHOENIX << 1;
       
       protected static const SKILL_STAMINA:int = 17;
-      
-      protected static const TYPE_NPC:int = 2;
       
       protected static const STATE_NONE:int = -1;
       
@@ -114,15 +112,17 @@ package tibia.creatures.unjustPointsWidgetClasses
       
       protected static const PROFESSION_NONE:int = 0;
       
-      private static const WIDGET_VIEW_HEIGHT:Number = 52;
+      protected static const BLESSING_BLOOD_OF_THE_MOUNTAIN:int = BLESSING_HEART_OF_THE_MOUNTAIN << 1;
       
       protected static const MAX_NAME_LENGTH:int = 29;
       
       protected static const PARTY_LEADER:int = 1;
       
-      protected static const STATE_PZ_ENTERED:int = 14;
+      private static const WIDGET_VIEW_HEIGHT:Number = 52;
       
       protected static const SKILL_CARRYSTRENGTH:int = 7;
+      
+      protected static const STATE_PZ_ENTERED:int = 14;
       
       protected static const PK_ATTACKER:int = 1;
       
@@ -133,6 +133,8 @@ package tibia.creatures.unjustPointsWidgetClasses
       protected static const GUILD_WAR_NEUTRAL:int = 3;
       
       protected static const STATE_DROWNING:int = 8;
+      
+      protected static const BLESSING_HEART_OF_THE_MOUNTAIN:int = BLESSING_EMBRACE_OF_TIBIA << 1;
       
       protected static const SKILL_LIFE_LEECH_AMOUNT:int = 22;
       
@@ -160,8 +162,6 @@ package tibia.creatures.unjustPointsWidgetClasses
       
       protected static const PROFESSION_MASK_NONE:int = 1 << PROFESSION_NONE;
       
-      protected static const TYPE_SUMMON_OWN:int = 3;
-      
       protected static const PROFESSION_MASK_SORCERER:int = 1 << PROFESSION_SORCERER;
       
       protected static const PROFESSION_KNIGHT:int = 1;
@@ -170,7 +170,7 @@ package tibia.creatures.unjustPointsWidgetClasses
       
       protected static const PARTY_LEADER_SEXP_INACTIVE_GUILTY:int = 8;
       
-      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_FIRE_OF_SUNS << 1;
+      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_TWIST_OF_FATE << 1;
       
       protected static const PROFESSION_PALADIN:int = 2;
       
@@ -186,7 +186,7 @@ package tibia.creatures.unjustPointsWidgetClasses
       
       protected static const STATE_FAST:int = 6;
       
-      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_SPARK_OF_PHOENIX << 1;
+      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_ADVENTURER << 1;
       
       protected static const SKILL_MANA_LEECH_AMOUNT:int = 24;
       
@@ -246,7 +246,9 @@ package tibia.creatures.unjustPointsWidgetClasses
       
       protected static const NPC_SPEECH_NORMAL:uint = 1;
       
-      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_ADVENTURER << 1;
+      protected static const TYPE_PLAYERSUMMON:int = 3;
+      
+      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_FIRE_OF_SUNS << 1;
       
       protected static const NPC_SPEECH_NONE:uint = 0;
       
@@ -399,9 +401,8 @@ package tibia.creatures.unjustPointsWidgetClasses
       
       override protected function measure() : void
       {
-         var _loc1_:EdgeMetrics = null;
          super.measure();
-         _loc1_ = viewMetricsAndPadding;
+         var _loc1_:EdgeMetrics = viewMetricsAndPadding;
          measuredMinWidth = measuredWidth = _loc1_.left + WIDGET_VIEW_WIDTH + _loc1_.right;
          measuredMinHeight = measuredHeight = _loc1_.top + WIDGET_VIEW_HEIGHT + _loc1_.bottom;
       }

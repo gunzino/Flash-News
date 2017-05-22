@@ -1,12 +1,12 @@
 package tibia.actionbar.widgetClasses
 {
-   import flash.filters.BitmapFilterQuality;
-   import flash.filters.GlowFilter;
+   import shared.utility.TextFieldCache;
    import flash.geom.Matrix;
    import flash.geom.Rectangle;
    import flash.text.TextField;
    import flash.text.TextFormat;
-   import shared.utility.TextFieldCache;
+   import flash.filters.GlowFilter;
+   import flash.filters.BitmapFilterQuality;
    
    public class TalkActionIconCache extends TextFieldCache
    {

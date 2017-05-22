@@ -1,21 +1,21 @@
 package tibia.market.marketWidgetClasses
 {
-   import flash.events.Event;
-   import flash.events.KeyboardEvent;
-   import flash.events.MouseEvent;
-   import flash.events.TextEvent;
+   import shared.controls.EmbeddedDialog;
+   import mx.controls.Button;
+   import mx.controls.TextInput;
+   import tibia.ingameshop.IngameShopManager;
+   import mx.controls.Label;
    import mx.containers.Box;
    import mx.containers.HBox;
-   import mx.controls.Button;
-   import mx.controls.Label;
-   import mx.controls.TextInput;
    import shared.controls.CustomButton;
-   import shared.controls.EmbeddedDialog;
-   import shared.utility.i18n.i18nFormatNumber;
-   import tibia.ingameshop.IngameShopManager;
+   import flash.events.MouseEvent;
    import tibia.input.MouseRepeatEvent;
-   import tibia.market.MarketWidget;
+   import flash.events.Event;
+   import flash.events.KeyboardEvent;
+   import flash.events.TextEvent;
    import tibia.market.Offer;
+   import tibia.market.MarketWidget;
+   import shared.utility.i18n.i18nFormatNumber;
    
    public class AcceptOfferDialog extends EmbeddedDialog
    {

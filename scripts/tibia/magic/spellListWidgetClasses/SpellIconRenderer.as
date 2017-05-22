@@ -1,14 +1,14 @@
 package tibia.magic.spellListWidgetClasses
 {
-   import flash.display.BitmapData;
+   import mx.core.UIComponent;
+   import flash.geom.Rectangle;
+   import flash.geom.Matrix;
+   import tibia.magic.Spell;
+   import mx.core.IFlexDisplayObject;
    import flash.display.DisplayObject;
    import flash.display.Graphics;
-   import flash.geom.Matrix;
-   import flash.geom.Rectangle;
+   import flash.display.BitmapData;
    import mx.core.FlexShape;
-   import mx.core.IFlexDisplayObject;
-   import mx.core.UIComponent;
-   import tibia.magic.Spell;
    
    public class SpellIconRenderer extends UIComponent
    {

@@ -1,28 +1,28 @@
 package tibia.sidebar
 {
-   import flash.display.DisplayObject;
+   import mx.core.Container;
+   import mx.events.DragEvent;
+   import tibia.sidebar.sideBarWidgetClasses.WidgetView;
+   import mx.core.DragSource;
+   import mx.managers.DragManager;
    import flash.events.Event;
    import flash.events.MouseEvent;
-   import flash.geom.Point;
-   import mx.core.Container;
-   import mx.core.DragSource;
-   import mx.core.EdgeMetrics;
-   import mx.core.IBorder;
-   import mx.core.IUIComponent;
-   import mx.core.ScrollPolicy;
-   import mx.core.UIComponent;
-   import mx.core.mx_internal;
-   import mx.events.CollectionEvent;
-   import mx.events.CollectionEventKind;
-   import mx.events.DragEvent;
-   import mx.events.PropertyChangeEvent;
    import mx.events.SandboxMouseEvent;
-   import mx.managers.CursorManagerPriority;
-   import mx.managers.DragManager;
-   import tibia.cursors.CursorHelper;
+   import mx.events.PropertyChangeEvent;
+   import mx.events.CollectionEvent;
+   import mx.core.EdgeMetrics;
+   import flash.display.DisplayObject;
+   import mx.events.CollectionEventKind;
    import tibia.options.OptionsStorage;
    import tibia.sidebar.sideBarWidgetClasses.SideBarHeader;
-   import tibia.sidebar.sideBarWidgetClasses.WidgetView;
+   import tibia.cursors.CursorHelper;
+   import flash.geom.Point;
+   import mx.core.UIComponent;
+   import mx.core.IUIComponent;
+   import mx.core.mx_internal;
+   import mx.core.IBorder;
+   import mx.managers.CursorManagerPriority;
+   import mx.core.ScrollPolicy;
    
    public class SideBarWidget extends Container
    {
@@ -62,7 +62,7 @@ package tibia.sidebar
       
       private var m_DropOffset:Number = NaN;
       
-      protected var m_SideBarSet:SideBarSet = null;
+      protected var m_SideBarSet:tibia.sidebar.SideBarSet = null;
       
       private var m_DropIndicatorSkipIndex:int = -1;
       
@@ -174,7 +174,7 @@ package tibia.sidebar
          }
       }
       
-      function get sideBarSet() : SideBarSet
+      function get sideBarSet() : tibia.sidebar.SideBarSet
       {
          return this.m_SideBarSet;
       }
@@ -210,7 +210,7 @@ package tibia.sidebar
          }
       }
       
-      function set sideBarSet(param1:SideBarSet) : void
+      function set sideBarSet(param1:tibia.sidebar.SideBarSet) : void
       {
          if(this.m_SideBarSet != param1)
          {
@@ -232,13 +232,13 @@ package tibia.sidebar
       
       override protected function updateDisplayList(param1:Number, param2:Number) : void
       {
-         var _loc13_:WidgetView = null;
+         var _loc7_:Number = NaN;
          layoutChrome(param1,unscaledHeight);
          var _loc3_:EdgeMetrics = viewMetricsAndPadding;
          var _loc4_:Number = Math.max(0,getStyle("verticalGap"));
          var _loc5_:Number = 0;
          var _loc6_:Number = 0;
-         var _loc7_:Number = 0;
+         _loc7_ = 0;
          var _loc8_:Number = 0;
          var _loc9_:Number = getStyle("paddingLeft");
          var _loc10_:Number = 0;
@@ -253,7 +253,7 @@ package tibia.sidebar
             _loc10_ = _loc7_;
          }
          var _loc12_:int = 0;
-         _loc13_ = null;
+         var _loc13_:WidgetView = null;
          var _loc14_:Number = param2 - _loc10_ - _loc3_.top - _loc3_.bottom;
          var _loc15_:Number = -_loc4_;
          if(!visible)
@@ -593,7 +593,7 @@ package tibia.sidebar
       {
          if(this.m_Options != null)
          {
-            this.sideBarSet = this.m_Options.getSideBarSet(SideBarSet.DEFAULT_SET);
+            this.sideBarSet = this.m_Options.getSideBarSet(tibia.sidebar.SideBarSet.DEFAULT_SET);
          }
          else
          {

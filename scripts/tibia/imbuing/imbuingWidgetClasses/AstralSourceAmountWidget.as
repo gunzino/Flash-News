@@ -1,11 +1,11 @@
 package tibia.imbuing.imbuingWidgetClasses
 {
-   import flash.events.MouseEvent;
-   import mx.containers.HBox;
    import mx.containers.VBox;
+   import tibia.appearances.widgetClasses.SimpleAppearanceRenderer;
+   import flash.events.MouseEvent;
    import mx.controls.Label;
    import shared.controls.ShapeWrapper;
-   import tibia.appearances.widgetClasses.SimpleAppearanceRenderer;
+   import mx.containers.HBox;
    
    public class AstralSourceAmountWidget extends VBox
    {

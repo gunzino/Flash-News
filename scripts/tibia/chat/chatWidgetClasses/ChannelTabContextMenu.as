@@ -1,12 +1,12 @@
 package tibia.chat.chatWidgetClasses
 {
-   import mx.core.IUIComponent;
+   import tibia.game.ContextMenuBase;
    import tibia.chat.Channel;
    import tibia.chat.ChatStorage;
-   import tibia.game.ContextMenuBase;
+   import mx.core.IUIComponent;
    import tibia.input.gameaction.PrivateChatActionImpl;
-   import tibia.input.gameaction.SaveChannelActionImpl;
    import tibia.network.Communication;
+   import tibia.input.gameaction.SaveChannelActionImpl;
    
    public class ChannelTabContextMenu extends ContextMenuBase
    {

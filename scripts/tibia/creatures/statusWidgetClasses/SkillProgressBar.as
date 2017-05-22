@@ -1,29 +1,29 @@
 package tibia.creatures.statusWidgetClasses
 {
+   import mx.containers.HBox;
+   import shared.utility.cacheStyleInstance;
+   import mx.events.ToolTipEvent;
+   import mx.core.IToolTip;
+   import tibia.creatures.StatusWidget;
+   import tibia.creatures.Player;
+   import mx.core.IInvalidating;
+   import shared.controls.ShapeWrapper;
    import flash.display.Bitmap;
-   import flash.display.BitmapData;
-   import flash.display.DisplayObject;
+   import shared.controls.CustomButton;
    import flash.events.MouseEvent;
-   import flash.filters.BitmapFilterQuality;
-   import flash.filters.GlowFilter;
+   import mx.styles.CSSStyleDeclaration;
    import flash.geom.Matrix;
-   import flash.geom.Rectangle;
    import flash.text.TextField;
    import flash.text.TextFieldAutoSize;
-   import flash.text.TextFormat;
-   import mx.containers.HBox;
-   import mx.core.IInvalidating;
-   import mx.core.IToolTip;
-   import mx.events.PropertyChangeEvent;
-   import mx.events.ToolTipEvent;
-   import mx.styles.CSSStyleDeclaration;
+   import flash.filters.GlowFilter;
+   import flash.filters.BitmapFilterQuality;
    import mx.styles.StyleManager;
-   import shared.controls.CustomButton;
-   import shared.controls.ShapeWrapper;
+   import flash.text.TextFormat;
+   import flash.display.BitmapData;
+   import flash.geom.Rectangle;
+   import mx.events.PropertyChangeEvent;
    import shared.utility.StringHelper;
-   import shared.utility.cacheStyleInstance;
-   import tibia.creatures.Player;
-   import tibia.creatures.StatusWidget;
+   import flash.display.DisplayObject;
    import tibia.ingameshop.IngameShopManager;
    import tibia.ingameshop.IngameShopProduct;
    
@@ -64,13 +64,11 @@ package tibia.creatures.statusWidgetClasses
       
       protected static const SKILL_EXPERIENCE:int = 0;
       
-      protected static const TYPE_SUMMON_OTHERS:int = 4;
+      protected static const TYPE_NPC:int = 2;
       
-      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_EMBRACE_OF_TIBIA << 1;
+      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_SPARK_OF_PHOENIX << 1;
       
       protected static const SKILL_STAMINA:int = 17;
-      
-      protected static const TYPE_NPC:int = 2;
       
       protected static const STATE_NONE:int = -1;
       
@@ -101,12 +99,6 @@ package tibia.creatures.statusWidgetClasses
       protected static const PK_PLAYERKILLER:int = 4;
       
       protected static const PROFESSION_MASK_KNIGHT:int = 1 << PROFESSION_KNIGHT;
-      
-      protected static const STATE_DAZZLED:int = 10;
-      
-      protected static const SUMMON_OTHERS:int = 2;
-      
-      protected static const SKILL_NONE:int = -1;
       
       private static const SKILL_OPTIONS:Array = [{
          "value":SKILL_CARRYSTRENGTH,
@@ -167,6 +159,12 @@ package tibia.creatures.statusWidgetClasses
          "styleProp":null
       }];
       
+      protected static const STATE_DAZZLED:int = 10;
+      
+      protected static const SUMMON_OTHERS:int = 2;
+      
+      protected static const SKILL_NONE:int = -1;
+      
       protected static const NPC_SPEECH_TRADER:uint = 2;
       
       private static const BUNDLE:String = "StatusWidget";
@@ -175,13 +173,15 @@ package tibia.creatures.statusWidgetClasses
       
       protected static const PROFESSION_NONE:int = 0;
       
+      protected static const BLESSING_BLOOD_OF_THE_MOUNTAIN:int = BLESSING_HEART_OF_THE_MOUNTAIN << 1;
+      
       protected static const MAX_NAME_LENGTH:int = 29;
       
       protected static const PARTY_LEADER:int = 1;
       
-      protected static const STATE_PZ_ENTERED:int = 14;
-      
       protected static const SKILL_CARRYSTRENGTH:int = 7;
+      
+      protected static const STATE_PZ_ENTERED:int = 14;
       
       protected static const PK_ATTACKER:int = 1;
       
@@ -192,6 +192,8 @@ package tibia.creatures.statusWidgetClasses
       protected static const GUILD_WAR_NEUTRAL:int = 3;
       
       protected static const STATE_DROWNING:int = 8;
+      
+      protected static const BLESSING_HEART_OF_THE_MOUNTAIN:int = BLESSING_EMBRACE_OF_TIBIA << 1;
       
       protected static const SKILL_LIFE_LEECH_AMOUNT:int = 22;
       
@@ -219,8 +221,6 @@ package tibia.creatures.statusWidgetClasses
       
       protected static const PROFESSION_MASK_NONE:int = 1 << PROFESSION_NONE;
       
-      protected static const TYPE_SUMMON_OWN:int = 3;
-      
       protected static const PROFESSION_MASK_SORCERER:int = 1 << PROFESSION_SORCERER;
       
       protected static const PROFESSION_KNIGHT:int = 1;
@@ -229,7 +229,7 @@ package tibia.creatures.statusWidgetClasses
       
       protected static const PARTY_LEADER_SEXP_INACTIVE_GUILTY:int = 8;
       
-      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_FIRE_OF_SUNS << 1;
+      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_TWIST_OF_FATE << 1;
       
       protected static const PROFESSION_PALADIN:int = 2;
       
@@ -245,7 +245,7 @@ package tibia.creatures.statusWidgetClasses
       
       protected static const STATE_FAST:int = 6;
       
-      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_SPARK_OF_PHOENIX << 1;
+      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_ADVENTURER << 1;
       
       protected static const SKILL_MANA_LEECH_AMOUNT:int = 24;
       
@@ -305,7 +305,9 @@ package tibia.creatures.statusWidgetClasses
       
       protected static const NPC_SPEECH_NORMAL:uint = 1;
       
-      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_ADVENTURER << 1;
+      protected static const TYPE_PLAYERSUMMON:int = 3;
+      
+      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_FIRE_OF_SUNS << 1;
       
       protected static const NPC_SPEECH_NONE:uint = 0;
       
@@ -333,7 +335,7 @@ package tibia.creatures.statusWidgetClasses
       
       private var m_Skill:int = -1;
       
-      private var m_UIProgress:BitmapProgressBar = null;
+      private var m_UIProgress:tibia.creatures.statusWidgetClasses.BitmapProgressBar = null;
       
       private var m_UILabel:Bitmap = null;
       
@@ -443,7 +445,7 @@ package tibia.creatures.statusWidgetClasses
          this.m_UILabelWrapper = new ShapeWrapper();
          this.m_UILabelWrapper.addChild(this.m_UILabel);
          addChild(this.m_UILabelWrapper);
-         this.m_UIProgress = new BitmapProgressBar();
+         this.m_UIProgress = new tibia.creatures.statusWidgetClasses.BitmapProgressBar();
          this.m_UIProgress.labelEnabled = false;
          this.m_UIProgress.labelFormat = "{1}%";
          this.m_UIProgress.percentWidth = 100;

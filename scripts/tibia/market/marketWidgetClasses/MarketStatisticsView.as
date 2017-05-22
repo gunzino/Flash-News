@@ -1,16 +1,16 @@
 package tibia.market.marketWidgetClasses
 {
-   import flash.events.Event;
-   import mx.containers.BoxDirection;
+   import mx.controls.Label;
    import mx.containers.Form;
    import mx.containers.FormHeading;
    import mx.containers.FormItem;
-   import mx.controls.Label;
-   import mx.core.ScrollPolicy;
+   import flash.events.Event;
+   import tibia.market.OfferStatistics;
+   import tibia.market.Offer;
    import shared.utility.i18n.i18nFormatNumber;
    import tibia.market.MarketWidget;
-   import tibia.market.Offer;
-   import tibia.market.OfferStatistics;
+   import mx.containers.BoxDirection;
+   import mx.core.ScrollPolicy;
    
    public class MarketStatisticsView extends MarketComponent
    {

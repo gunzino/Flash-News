@@ -1,24 +1,24 @@
 package tibia.network
 {
-   import flash.events.ErrorEvent;
-   import flash.events.Event;
    import flash.events.EventDispatcher;
-   import flash.events.IOErrorEvent;
-   import flash.events.ProgressEvent;
-   import flash.events.SecurityErrorEvent;
-   import flash.events.TimerEvent;
-   import flash.net.Socket;
-   import flash.system.Security;
    import flash.utils.ByteArray;
    import flash.utils.Endian;
+   import flash.net.Socket;
    import flash.utils.Timer;
-   import flash.utils.getTimer;
-   import mx.resources.ResourceManager;
-   import shared.cryptography.RSAPublicKey;
+   import flash.events.ProgressEvent;
+   import flash.events.Event;
+   import flash.events.IOErrorEvent;
+   import flash.events.SecurityErrorEvent;
+   import flash.events.TimerEvent;
    import shared.cryptography.XTEA;
+   import flash.utils.getTimer;
    import shared.utility.StringHelper;
    import tibia.creatures.Creature;
+   import shared.cryptography.RSAPublicKey;
+   import mx.resources.ResourceManager;
    import tibia.game.AccountCharacter;
+   import flash.system.Security;
+   import flash.events.ErrorEvent;
    
    public class Connection extends EventDispatcher implements IServerConnection
    {
@@ -67,7 +67,7 @@ package tibia.network
       
       protected static const CBUYOBJECT:int = 122;
       
-      public static const CLIENT_VERSION:uint = 2443;
+      public static const CLIENT_VERSION:uint = 2460;
       
       protected static const SPING:int = 29;
       
@@ -275,6 +275,10 @@ package tibia.network
       
       protected static const SMARKETENTER:int = 246;
       
+      protected static const SCLIENTCHECK:int = 99;
+      
+      protected static const CBLESSINGSDIALOG:int = 207;
+      
       protected static const CONNECTION_STATE_CONNECTING_STAGE1:int = 1;
       
       protected static const SCREATURESPEED:int = 143;
@@ -303,7 +307,7 @@ package tibia.network
       
       protected static const SCREATUREOUTFIT:int = 142;
       
-      public static const PROTOCOL_VERSION:int = 1120;
+      public static const PROTOCOL_VERSION:int = 1130;
       
       protected static const SAMBIENTE:int = 130;
       
@@ -505,6 +509,8 @@ package tibia.network
       
       protected static const SEQUENCE_NUMBER_SIZE:int = 4;
       
+      protected static const SBLESSINGSDIALOG:int = 155;
+      
       protected static const COPENTRANSACTIONHISTORY:int = 253;
       
       protected static const CSHAREEXPERIENCE:int = 168;
@@ -542,11 +548,11 @@ package tibia.network
       
       private var m_PingEarliestTime:uint = 0;
       
-      private var m_CurrentConnectionData:IConnectionData = null;
+      private var m_CurrentConnectionData:tibia.network.IConnectionData = null;
       
       private var m_SessionKey:String = null;
       
-      private var m_PacketReader:NetworkPacketReader = null;
+      private var m_PacketReader:tibia.network.NetworkPacketReader = null;
       
       private var m_XTEA:XTEA = null;
       
@@ -560,7 +566,7 @@ package tibia.network
       
       private var m_PingLatency:uint = 0;
       
-      private var m_MessageReader:NetworkMessageReader = null;
+      private var m_MessageReader:tibia.network.NetworkMessageReader = null;
       
       private var m_PingCount:int = 0;
       
@@ -568,7 +574,7 @@ package tibia.network
       
       private var m_ConnectionState:int = 0;
       
-      private var m_Communication:IServerCommunication = null;
+      private var m_Communication:tibia.network.IServerCommunication = null;
       
       private var m_ConnectionWasLost:Boolean = false;
       
@@ -588,7 +594,7 @@ package tibia.network
       
       private var m_CharacterName:String = null;
       
-      private var m_MessageWriter:NetworkMessageWriter = null;
+      private var m_MessageWriter:tibia.network.NetworkMessageWriter = null;
       
       private var m_ConnectedSince:int = 0;
       
@@ -598,7 +604,7 @@ package tibia.network
          this.setConnectionState(CONNECTION_STATE_DISCONNECTED,false);
          this.m_Socket = null;
          this.createNewInputBuffer();
-         this.m_MessageWriter = new NetworkMessageWriter();
+         this.m_MessageWriter = new tibia.network.NetworkMessageWriter();
          this.m_RSAPublicKey = new RSAPublicKey();
          this.m_XTEA = new XTEA();
       }
@@ -612,8 +618,8 @@ package tibia.network
       {
          this.m_InputBuffer = new ByteArray();
          this.m_InputBuffer.endian = Endian.LITTLE_ENDIAN;
-         this.m_PacketReader = new NetworkPacketReader(this.m_InputBuffer);
-         this.m_MessageReader = new NetworkMessageReader(this.m_InputBuffer);
+         this.m_PacketReader = new tibia.network.NetworkPacketReader(this.m_InputBuffer);
+         this.m_MessageReader = new tibia.network.NetworkMessageReader(this.m_InputBuffer);
       }
       
       public function get isPending() : Boolean
@@ -930,7 +936,7 @@ package tibia.network
          }
       }
       
-      public function get connectionData() : IConnectionData
+      public function get connectionData() : tibia.network.IConnectionData
       {
          return this.m_CurrentConnectionData;
       }
@@ -940,7 +946,7 @@ package tibia.network
          return this.m_MessageReader;
       }
       
-      public function set communication(param1:IServerCommunication) : void
+      public function set communication(param1:tibia.network.IServerCommunication) : void
       {
          this.m_Communication = param1;
       }
@@ -1083,7 +1089,7 @@ package tibia.network
          this.handleConnectionError(256 + param1,_loc3_,param2);
       }
       
-      public function get communication() : IServerCommunication
+      public function get communication() : tibia.network.IServerCommunication
       {
          return this.m_Communication;
       }
@@ -1174,7 +1180,7 @@ package tibia.network
          this.m_SecondaryTimestamp = _loc2_;
       }
       
-      public function connect(param1:IConnectionData) : void
+      public function connect(param1:tibia.network.IConnectionData) : void
       {
          var _loc4_:* = null;
          if(!(param1 is AccountCharacter))

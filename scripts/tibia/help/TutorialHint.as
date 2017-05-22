@@ -1,11 +1,11 @@
 package tibia.help
 {
+   import tibia.input.IActionImpl;
    import mx.events.CloseEvent;
-   import mx.resources.IResourceManager;
-   import mx.resources.ResourceManager;
    import shared.utility.StringHelper;
    import tibia.chat.MessageMode;
-   import tibia.input.IActionImpl;
+   import mx.resources.ResourceManager;
+   import mx.resources.IResourceManager;
    
    public class TutorialHint implements IActionImpl
    {

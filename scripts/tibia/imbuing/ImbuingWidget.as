@@ -1,23 +1,23 @@
 package tibia.imbuing
 {
-   import flash.text.TextLineMetrics;
-   import mx.containers.HBox;
-   import mx.controls.Text;
+   import tibia.game.PopUpBase;
+   import tibia.game.ExtendedTooltipEvent;
+   import tibia.creatures.Player;
    import mx.events.PropertyChangeEvent;
-   import shared.controls.EmbeddedDialog;
    import shared.utility.i18n.i18nFormatNumber;
    import tibia.controls.TibiaCurrencyView;
-   import tibia.creatures.Player;
-   import tibia.game.ExtendedTooltipEvent;
-   import tibia.game.PopUpBase;
-   import tibia.imbuing.imbuingWidgetClasses.ImbuementInformationPane;
-   import tibia.imbuing.imbuingWidgetClasses.ImbuementSlotWidget;
+   import mx.containers.HBox;
+   import flash.text.TextLineMetrics;
    import tibia.imbuing.imbuingWidgetClasses.ItemInformationPane;
+   import tibia.imbuing.imbuingWidgetClasses.ImbuementInformationPane;
+   import mx.controls.Text;
+   import tibia.imbuing.imbuingWidgetClasses.ImbuementSlotWidget;
+   import shared.controls.EmbeddedDialog;
    
    public class ImbuingWidget extends PopUpBase
    {
       
-      private static var s_CurrentInstance:ImbuingWidget = null;
+      private static var s_CurrentInstance:tibia.imbuing.ImbuingWidget = null;
       
       private static const BUNDLE:String = "ImbuingWidget";
       
@@ -54,7 +54,7 @@ package tibia.imbuing
          this.player = Tibia.s_GetPlayer();
       }
       
-      public static function s_GetCurrentInstance() : ImbuingWidget
+      public static function s_GetCurrentInstance() : tibia.imbuing.ImbuingWidget
       {
          return s_CurrentInstance;
       }

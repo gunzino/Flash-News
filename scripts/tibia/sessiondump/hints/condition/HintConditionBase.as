@@ -1,7 +1,7 @@
 package tibia.sessiondump.hints.condition
 {
-   import avmplus.getQualifiedClassName;
    import shared.utility.Vector3D;
+   import avmplus.getQualifiedClassName;
    
    public class HintConditionBase
    {

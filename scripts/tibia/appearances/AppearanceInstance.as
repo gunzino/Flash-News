@@ -1,9 +1,9 @@
 package tibia.appearances
 {
-   import flash.display.BitmapData;
-   import flash.geom.Point;
    import flash.geom.Rectangle;
+   import flash.geom.Point;
    import tibia.appearances.widgetClasses.CachedSpriteInformation;
+   import flash.display.BitmapData;
    
    public class AppearanceInstance
    {
@@ -33,7 +33,7 @@ package tibia.appearances
       
       protected var m_ActiveFrameGroup:uint = 0;
       
-      var m_Type:AppearanceType = null;
+      var m_Type:tibia.appearances.AppearanceType = null;
       
       var m_ID:int = 0;
       
@@ -49,7 +49,7 @@ package tibia.appearances
       
       protected var m_TempAlternativePhases:Vector.<uint> = null;
       
-      public function AppearanceInstance(param1:int, param2:AppearanceType)
+      public function AppearanceInstance(param1:int, param2:tibia.appearances.AppearanceType)
       {
          var _loc3_:* = null;
          this.m_Animators = {};
@@ -72,7 +72,7 @@ package tibia.appearances
          }
       }
       
-      public function get type() : AppearanceType
+      public function get type() : tibia.appearances.AppearanceType
       {
          return this.m_Type;
       }

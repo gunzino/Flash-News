@@ -1,7 +1,7 @@
 package tibia.input.staticaction
 {
-   import tibia.input.MappingSet;
    import tibia.options.OptionsStorage;
+   import tibia.input.MappingSet;
    
    public class ChatSendText extends StaticAction
    {

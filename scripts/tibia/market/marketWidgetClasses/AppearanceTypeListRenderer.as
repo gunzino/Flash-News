@@ -1,8 +1,8 @@
 package tibia.market.marketWidgetClasses
 {
    import mx.controls.Label;
-   import shared.controls.CustomLabel;
    import tibia.appearances.AppearanceType;
+   import shared.controls.CustomLabel;
    
    public class AppearanceTypeListRenderer extends AppearanceTypeTileRenderer
    {

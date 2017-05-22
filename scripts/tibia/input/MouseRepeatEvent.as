@@ -1,8 +1,8 @@
 package tibia.input
 {
-   import flash.display.InteractiveObject;
-   import flash.events.Event;
    import flash.events.MouseEvent;
+   import flash.events.Event;
+   import flash.display.InteractiveObject;
    
    public class MouseRepeatEvent extends MouseEvent
    {

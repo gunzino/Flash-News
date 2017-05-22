@@ -1,38 +1,38 @@
 package tibia.controls
 {
-   import flash.display.DisplayObject;
-   import flash.events.Event;
-   import flash.events.MouseEvent;
-   import flash.events.TimerEvent;
-   import flash.utils.Timer;
-   import mx.collections.ArrayCollection;
-   import mx.collections.IList;
-   import mx.containers.ViewStack;
-   import mx.controls.Button;
-   import mx.controls.Menu;
-   import mx.core.ClassFactory;
-   import mx.core.Container;
-   import mx.core.DragSource;
-   import mx.core.EventPriority;
-   import mx.core.ScrollPolicy;
    import mx.core.UIComponent;
-   import mx.core.mx_internal;
-   import mx.events.ChildExistenceChangedEvent;
-   import mx.events.CollectionEvent;
-   import mx.events.CollectionEventKind;
-   import mx.events.DragEvent;
-   import mx.events.IndexChangedEvent;
-   import mx.events.MenuEvent;
-   import mx.events.PropertyChangeEvent;
-   import mx.events.SandboxMouseEvent;
-   import mx.managers.DragManager;
    import mx.styles.CSSStyleDeclaration;
    import mx.styles.StyleManager;
+   import mx.controls.Button;
+   import mx.core.Container;
    import shared.controls.CustomButton;
-   import tibia.controls.dynamicTabBarClasses.DynamicTab;
-   import tibia.controls.dynamicTabBarClasses.TabBarEvent;
-   import tibia.controls.dynamicTabBarClasses.TabBarMenu;
+   import flash.events.MouseEvent;
    import tibia.input.MouseRepeatEvent;
+   import tibia.controls.dynamicTabBarClasses.DynamicTab;
+   import flash.events.Event;
+   import tibia.controls.dynamicTabBarClasses.TabBarEvent;
+   import mx.collections.IList;
+   import mx.containers.ViewStack;
+   import flash.display.DisplayObject;
+   import mx.collections.ArrayCollection;
+   import mx.core.ClassFactory;
+   import mx.events.MenuEvent;
+   import mx.core.ScrollPolicy;
+   import mx.events.CollectionEvent;
+   import mx.events.ChildExistenceChangedEvent;
+   import mx.events.IndexChangedEvent;
+   import mx.core.DragSource;
+   import mx.core.EventPriority;
+   import mx.events.SandboxMouseEvent;
+   import mx.managers.DragManager;
+   import flash.utils.Timer;
+   import tibia.controls.dynamicTabBarClasses.TabBarMenu;
+   import mx.events.DragEvent;
+   import mx.events.PropertyChangeEvent;
+   import mx.events.CollectionEventKind;
+   import mx.controls.Menu;
+   import flash.events.TimerEvent;
+   import mx.core.mx_internal;
    
    public class DynamicTabBar extends UIComponent
    {

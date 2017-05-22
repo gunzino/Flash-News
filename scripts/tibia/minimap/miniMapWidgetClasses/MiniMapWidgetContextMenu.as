@@ -1,7 +1,7 @@
 package tibia.minimap.miniMapWidgetClasses
 {
-   import mx.core.IUIComponent;
    import tibia.game.ContextMenuBase;
+   import mx.core.IUIComponent;
    import tibia.minimap.EditMarkWidget;
    import tibia.minimap.MiniMapStorage;
    

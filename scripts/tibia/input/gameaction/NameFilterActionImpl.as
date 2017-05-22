@@ -1,11 +1,11 @@
 package tibia.input.gameaction
 {
-   import mx.resources.ResourceManager;
-   import tibia.chat.ChatStorage;
-   import tibia.chat.MessageMode;
-   import tibia.chat.NameFilterSet;
    import tibia.input.IActionImpl;
    import tibia.options.OptionsStorage;
+   import tibia.chat.NameFilterSet;
+   import tibia.chat.ChatStorage;
+   import tibia.chat.MessageMode;
+   import mx.resources.ResourceManager;
    
    public class NameFilterActionImpl implements IActionImpl
    {

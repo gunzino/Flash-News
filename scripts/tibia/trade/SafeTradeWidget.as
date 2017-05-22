@@ -1,9 +1,9 @@
 package tibia.trade
 {
-   import mx.collections.IList;
-   import tibia.network.Communication;
    import tibia.sidebar.Widget;
+   import mx.collections.IList;
    import tibia.trade.safeTradeWidgetClasses.SafeTradeWidgetView;
+   import tibia.network.Communication;
    
    public class SafeTradeWidget extends Widget
    {

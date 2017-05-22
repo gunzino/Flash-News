@@ -6,7 +6,7 @@ package tibia.premium
    {
        
       
-      private var m_PremiumManager:PremiumManager = null;
+      private var m_PremiumManager:tibia.premium.PremiumManager = null;
       
       public function PremiumWidget()
       {
@@ -14,7 +14,7 @@ package tibia.premium
          this.m_PremiumManager = Tibia.s_GetPremiumManager();
       }
       
-      public function get premiumManager() : PremiumManager
+      public function get premiumManager() : tibia.premium.PremiumManager
       {
          return this.m_PremiumManager;
       }

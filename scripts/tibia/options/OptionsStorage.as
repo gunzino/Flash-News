@@ -1,30 +1,30 @@
 package tibia.options
 {
-   import flash.events.Event;
    import flash.events.EventDispatcher;
+   import tibia.chat.NameFilterSet;
+   import tibia.chat.ChannelSet;
+   import mx.events.PropertyChangeEvent;
+   import shared.utility.XMLHelper;
+   import tibia.market.marketWidgetClasses.AppearanceTypeBrowser;
+   import tibia.chat.MessageFilterSet;
+   import tibia.help.TutorialHint;
+   import mx.events.PropertyChangeEventKind;
+   import tibia.input.mapping.MouseMapping;
+   import tibia.input.MappingSet;
+   import tibia.trade.npcTradeWidgetClasses.ObjectRefSelectorBase;
+   import tibia.container.BodyContainerView;
+   import tibia.market.MarketWidget;
+   import tibia.actionbar.ActionBarSet;
+   import tibia.creatures.BuddySet;
+   import tibia.creatures.StatusWidget;
    import flash.events.IEventDispatcher;
    import mx.events.CollectionEvent;
-   import mx.events.PropertyChangeEvent;
-   import mx.events.PropertyChangeEventKind;
-   import mx.utils.StringUtil;
-   import shared.utility.XMLHelper;
-   import tibia.actionbar.ActionBarSet;
    import tibia.appearances.AppearanceType;
-   import tibia.chat.ChannelSet;
-   import tibia.chat.MessageFilterSet;
-   import tibia.chat.NameFilterSet;
-   import tibia.container.BodyContainerView;
-   import tibia.creatures.BuddySet;
-   import tibia.creatures.CreatureStorage;
-   import tibia.creatures.StatusWidget;
-   import tibia.help.TutorialHint;
-   import tibia.input.MappingSet;
-   import tibia.input.mapping.MouseMapping;
-   import tibia.market.MarketWidget;
-   import tibia.market.marketWidgetClasses.AppearanceTypeBrowser;
+   import flash.events.Event;
    import tibia.sidebar.SideBarSet;
-   import tibia.trade.npcTradeWidgetClasses.ObjectRefSelectorBase;
+   import mx.utils.StringUtil;
    import tibia.worldmap.widgetClasses.RendererImpl;
+   import tibia.creatures.CreatureStorage;
    
    public class OptionsStorage extends EventDispatcher
    {
@@ -73,11 +73,9 @@ package tibia.options
       
       protected static const TYPE_NPC:int = 2;
       
-      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_EMBRACE_OF_TIBIA << 1;
+      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_SPARK_OF_PHOENIX << 1;
       
       protected static const SKILL_STAMINA:int = 17;
-      
-      protected static const TYPE_SUMMON_OTHERS:int = 4;
       
       protected static const STATE_NONE:int = -1;
       
@@ -129,6 +127,8 @@ package tibia.options
       
       public static const COMBAT_PVP_MODE_DOVE:uint = 0;
       
+      protected static const BLESSING_BLOOD_OF_THE_MOUNTAIN:int = BLESSING_HEART_OF_THE_MOUNTAIN << 1;
+      
       protected static const MAX_NAME_LENGTH:int = 29;
       
       protected static const PARTY_LEADER:int = 1;
@@ -137,17 +137,19 @@ package tibia.options
       
       public static const COMBAT_SECURE_OFF:int = 0;
       
+      protected static const SKILL_CARRYSTRENGTH:int = 7;
+      
       protected static const PK_ATTACKER:int = 1;
       
       protected static const STATE_ELECTRIFIED:int = 2;
       
       protected static const SKILL_FIGHTSWORD:int = 11;
       
-      protected static const SKILL_CARRYSTRENGTH:int = 7;
-      
       protected static const GUILD_WAR_NEUTRAL:int = 3;
       
       protected static const STATE_DROWNING:int = 8;
+      
+      protected static const BLESSING_HEART_OF_THE_MOUNTAIN:int = BLESSING_EMBRACE_OF_TIBIA << 1;
       
       protected static const SKILL_LIFE_LEECH_AMOUNT:int = 22;
       
@@ -224,8 +226,6 @@ package tibia.options
       
       protected static const PROFESSION_MASK_NONE:int = 1 << PROFESSION_NONE;
       
-      protected static const TYPE_SUMMON_OWN:int = 3;
-      
       protected static const PROFESSION_MASK_SORCERER:int = 1 << PROFESSION_SORCERER;
       
       protected static const PROFESSION_KNIGHT:int = 1;
@@ -234,7 +234,7 @@ package tibia.options
       
       protected static const PARTY_LEADER_SEXP_INACTIVE_GUILTY:int = 8;
       
-      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_FIRE_OF_SUNS << 1;
+      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_TWIST_OF_FATE << 1;
       
       protected static const PROFESSION_PALADIN:int = 2;
       
@@ -250,7 +250,7 @@ package tibia.options
       
       protected static const STATE_FAST:int = 6;
       
-      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_SPARK_OF_PHOENIX << 1;
+      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_ADVENTURER << 1;
       
       protected static const SKILL_MANA_LEECH_AMOUNT:int = 24;
       
@@ -314,9 +314,11 @@ package tibia.options
       
       protected static const NPC_SPEECH_NORMAL:uint = 1;
       
+      protected static const TYPE_PLAYERSUMMON:int = 3;
+      
       public static const COMBAT_ATTACK_BALANCED:int = 2;
       
-      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_ADVENTURER << 1;
+      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_FIRE_OF_SUNS << 1;
       
       protected static const NPC_SPEECH_NONE:uint = 0;
       
@@ -423,7 +425,7 @@ package tibia.options
       
       private var m_CombatSecureMode:int = -1;
       
-      private var m_ServerUIHints:UiServerHints = null;
+      private var m_ServerUIHints:tibia.options.UiServerHints = null;
       
       private var m_ChannelSet:Vector.<ChannelSet>;
       
@@ -497,7 +499,7 @@ package tibia.options
             }
          }
          this.initialiseBuddySet();
-         this.m_ServerUIHints = new UiServerHints(this);
+         this.m_ServerUIHints = new tibia.options.UiServerHints(this);
          var _Event:PropertyChangeEvent = new PropertyChangeEvent(PropertyChangeEvent.PROPERTY_CHANGE);
          _Event.kind = PropertyChangeEventKind.UPDATE;
          _Event.property = "*";
@@ -1434,7 +1436,7 @@ package tibia.options
                         </market>);
       }
       
-      public function get uiHints() : UiServerHints
+      public function get uiHints() : tibia.options.UiServerHints
       {
          return this.m_ServerUIHints;
       }
@@ -1830,7 +1832,7 @@ package tibia.options
          this.m_StatusPlayerHealth = param1;
       }
       
-      private function set _460459880uiHints(param1:UiServerHints) : void
+      private function set _460459880uiHints(param1:tibia.options.UiServerHints) : void
       {
          this.m_ServerUIHints = param1;
          this.m_ServerUIHints.options = this;
@@ -2202,7 +2204,7 @@ package tibia.options
       }
       
       [Bindable(event="propertyChange")]
-      public function set uiHints(param1:UiServerHints) : void
+      public function set uiHints(param1:tibia.options.UiServerHints) : void
       {
          var _loc2_:Object = this.uiHints;
          if(_loc2_ !== param1)

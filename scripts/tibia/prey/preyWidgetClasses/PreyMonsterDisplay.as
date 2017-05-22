@@ -1,13 +1,13 @@
 package tibia.prey.preyWidgetClasses
 {
-   import flash.display.Bitmap;
-   import flash.display.BitmapData;
    import mx.containers.HBox;
-   import mx.containers.VBox;
+   import flash.display.BitmapData;
+   import flash.display.Bitmap;
    import mx.controls.Image;
+   import tibia.appearances.widgetClasses.SimpleAppearanceRenderer;
    import shared.controls.ShapeWrapper;
    import tibia.appearances.AppearanceInstance;
-   import tibia.appearances.widgetClasses.SimpleAppearanceRenderer;
+   import mx.containers.VBox;
    import tibia.prey.PreyData;
    
    public class PreyMonsterDisplay extends HBox

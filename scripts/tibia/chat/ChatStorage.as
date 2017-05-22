@@ -1,24 +1,24 @@
 package tibia.chat
 {
    import flash.events.EventDispatcher;
-   import flash.utils.getTimer;
-   import mx.collections.ArrayCollection;
+   import mx.resources.ResourceManager;
    import mx.collections.IList;
-   import mx.core.EventPriority;
+   import tibia.network.Communication;
+   import tibia.§chat:ns_chat_internal§.s_IsPrivateChannel;
+   import tibia.creatures.Player;
+   import shared.utility.StringHelper;
+   import tibia.reporting.reportType.Type;
+   import tibia.§chat:ns_chat_internal§.s_IsRestorableChannel;
+   import flash.utils.getTimer;
+   import tibia.options.OptionsStorage;
+   import mx.resources.IResourceManager;
    import mx.events.CollectionEvent;
    import mx.events.CollectionEventKind;
    import mx.events.PropertyChangeEvent;
-   import mx.resources.IResourceManager;
-   import mx.resources.ResourceManager;
-   import shared.utility.StringHelper;
-   import tibia.§chat:ns_chat_internal§.s_IsPrivateChannel;
-   import tibia.§chat:ns_chat_internal§.s_IsRestorableChannel;
-   import tibia.creatures.Player;
    import tibia.game.MessageWidget;
    import tibia.game.Tibia11NagWidget;
-   import tibia.network.Communication;
-   import tibia.options.OptionsStorage;
-   import tibia.reporting.reportType.Type;
+   import mx.collections.ArrayCollection;
+   import mx.core.EventPriority;
    
    public class ChatStorage extends EventDispatcher
    {

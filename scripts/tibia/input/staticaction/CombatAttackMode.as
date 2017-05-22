@@ -1,7 +1,7 @@
 package tibia.input.staticaction
 {
-   import tibia.network.Communication;
    import tibia.options.OptionsStorage;
+   import tibia.network.Communication;
    
    public class CombatAttackMode extends StaticAction
    {

@@ -1,12 +1,12 @@
 package tibia.chat.chatWidgetClasses
 {
-   import flash.events.MouseEvent;
+   import tibia.controls.dynamicTabBarClasses.DynamicTab;
+   import mx.events.PropertyChangeEvent;
+   import tibia.controls.DynamicTabBar;
+   import tibia.chat.Channel;
    import mx.events.CollectionEvent;
    import mx.events.CollectionEventKind;
-   import mx.events.PropertyChangeEvent;
-   import tibia.chat.Channel;
-   import tibia.controls.DynamicTabBar;
-   import tibia.controls.dynamicTabBarClasses.DynamicTab;
+   import flash.events.MouseEvent;
    
    public class ChannelTab extends DynamicTab
    {

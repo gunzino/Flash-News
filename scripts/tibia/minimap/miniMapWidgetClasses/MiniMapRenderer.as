@@ -1,20 +1,20 @@
 package tibia.minimap.miniMapWidgetClasses
 {
-   import flash.display.BitmapData;
-   import flash.events.Event;
-   import flash.events.MouseEvent;
-   import flash.events.TimerEvent;
-   import flash.geom.Matrix;
-   import flash.geom.Point;
-   import flash.geom.Rectangle;
-   import flash.utils.Timer;
-   import mx.controls.ToolTip;
    import mx.core.UIComponent;
-   import mx.events.PropertyChangeEvent;
+   import flash.events.Event;
+   import flash.geom.Point;
+   import flash.events.MouseEvent;
    import mx.managers.ToolTipManager;
-   import shared.utility.Vector3D;
+   import mx.controls.ToolTip;
+   import flash.events.TimerEvent;
+   import mx.events.PropertyChangeEvent;
    import tibia.minimap.MiniMapSector;
    import tibia.minimap.MiniMapStorage;
+   import shared.utility.Vector3D;
+   import flash.utils.Timer;
+   import flash.geom.Rectangle;
+   import flash.geom.Matrix;
+   import flash.display.BitmapData;
    
    public class MiniMapRenderer extends UIComponent
    {

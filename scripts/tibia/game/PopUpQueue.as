@@ -7,27 +7,27 @@ package tibia.game
    public class PopUpQueue
    {
       
-      private static var s_Instance:PopUpQueue = null;
+      private static var s_Instance:tibia.game.PopUpQueue = null;
        
       
-      private var m_Queue:Vector.<PopUpBase>;
+      private var m_Queue:Vector.<tibia.game.PopUpBase>;
       
       public function PopUpQueue()
       {
-         this.m_Queue = new Vector.<PopUpBase>();
+         this.m_Queue = new Vector.<tibia.game.PopUpBase>();
          super();
       }
       
-      public static function getInstance() : PopUpQueue
+      public static function getInstance() : tibia.game.PopUpQueue
       {
          if(s_Instance == null)
          {
-            s_Instance = new PopUpQueue();
+            s_Instance = new tibia.game.PopUpQueue();
          }
          return s_Instance;
       }
       
-      public function hide(param1:PopUpBase) : void
+      public function hide(param1:tibia.game.PopUpBase) : void
       {
          var _loc2_:int = -1;
          _loc2_ = this.m_Queue.length - 1;
@@ -70,7 +70,7 @@ package tibia.game
          }
       }
       
-      private function hideInternal(param1:PopUpBase) : void
+      private function hideInternal(param1:tibia.game.PopUpBase) : void
       {
          PopUpManager.removePopUp(param1);
          var _loc2_:InputHandler = Tibia.s_GetInputHandler();
@@ -84,11 +84,11 @@ package tibia.game
       {
          if(!param1.cancelable || !param1.isDefaultPrevented())
          {
-            this.hide(param1.currentTarget as PopUpBase);
+            this.hide(param1.currentTarget as tibia.game.PopUpBase);
          }
       }
       
-      private function showInternal(param1:PopUpBase) : void
+      private function showInternal(param1:tibia.game.PopUpBase) : void
       {
          if(ContextMenuBase.getCurrent() != null)
          {
@@ -103,7 +103,7 @@ package tibia.game
          PopUpManager.centerPopUp(param1);
       }
       
-      public function show(param1:PopUpBase) : void
+      public function show(param1:tibia.game.PopUpBase) : void
       {
          if(param1 == null)
          {
@@ -133,7 +133,7 @@ package tibia.game
          this.m_Queue.length = _loc2_ + 1;
       }
       
-      public function contains(param1:PopUpBase) : Boolean
+      public function contains(param1:tibia.game.PopUpBase) : Boolean
       {
          var _loc2_:int = this.m_Queue.length - 1;
          while(_loc2_ >= 0)

@@ -1,18 +1,18 @@
 package tibia.chat.chatWidgetClasses
 {
-   import flash.events.Event;
-   import flash.events.MouseEvent;
-   import flash.geom.Matrix;
-   import flash.geom.Point;
-   import flash.geom.Rectangle;
-   import flash.text.StyleSheet;
-   import mx.controls.listClasses.IListItemRenderer;
-   import mx.core.IDataRenderer;
    import mx.core.UIComponent;
+   import mx.core.IDataRenderer;
+   import mx.controls.listClasses.IListItemRenderer;
+   import flash.text.StyleSheet;
    import shared.controls.UIHyperlinksTextField;
-   import shared.controls.UIHyperlinksTextFieldHyperlinkInfo;
+   import flash.events.Event;
    import tibia.chat.ChannelMessage;
+   import shared.controls.UIHyperlinksTextFieldHyperlinkInfo;
    import tibia.help.UIEffectsRetrieveComponentCommandEvent;
+   import flash.geom.Rectangle;
+   import flash.events.MouseEvent;
+   import flash.geom.Point;
+   import flash.geom.Matrix;
    
    public class ChannelMessageRenderer extends UIComponent implements ISelectionProxy, IDataRenderer, IListItemRenderer
    {

@@ -1,7 +1,7 @@
 package tibia.sessiondump
 {
-   import flash.utils.ByteArray;
    import tibia.network.IMessageReader;
+   import flash.utils.ByteArray;
    
    public class SessiondumpMessageReader implements IMessageReader
    {

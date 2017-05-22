@@ -1,33 +1,33 @@
 package tibia.trade.npcTradeWidgetClasses
 {
-   import flash.events.Event;
-   import flash.events.MouseEvent;
-   import mx.collections.ICollectionView;
-   import mx.collections.IList;
-   import mx.containers.Form;
-   import mx.containers.FormItem;
-   import mx.containers.HBox;
-   import mx.controls.Button;
-   import mx.controls.Label;
-   import mx.controls.TabBar;
-   import mx.core.ScrollPolicy;
-   import mx.events.ItemClickEvent;
-   import mx.events.PropertyChangeEvent;
+   import tibia.sidebar.sideBarWidgetClasses.WidgetView;
    import mx.styles.CSSStyleDeclaration;
    import mx.styles.StyleManager;
-   import shared.controls.CustomButton;
-   import shared.utility.i18n.i18nFormatNumber;
    import tibia.appearances.AppearanceStorage;
-   import tibia.appearances.AppearanceType;
-   import tibia.appearances.ObjectInstance;
-   import tibia.container.BodyContainerView;
-   import tibia.container.ContainerStorage;
+   import mx.controls.Label;
+   import mx.controls.Button;
    import tibia.creatures.Player;
-   import tibia.network.Communication;
-   import tibia.sidebar.sideBarWidgetClasses.WidgetView;
+   import mx.collections.IList;
+   import tibia.trade.TradeObjectRef;
+   import tibia.appearances.AppearanceType;
+   import tibia.container.BodyContainerView;
+   import tibia.appearances.ObjectInstance;
    import tibia.§sidebar:ns_sidebar_internal§.options;
    import tibia.trade.NPCTradeWidget;
-   import tibia.trade.TradeObjectRef;
+   import shared.utility.i18n.i18nFormatNumber;
+   import mx.controls.TabBar;
+   import mx.containers.HBox;
+   import mx.containers.Form;
+   import mx.containers.FormItem;
+   import mx.events.ItemClickEvent;
+   import shared.controls.CustomButton;
+   import flash.events.MouseEvent;
+   import flash.events.Event;
+   import mx.events.PropertyChangeEvent;
+   import tibia.container.ContainerStorage;
+   import tibia.network.Communication;
+   import mx.collections.ICollectionView;
+   import mx.core.ScrollPolicy;
    
    public class NPCTradeWidgetView extends WidgetView
    {
@@ -66,13 +66,11 @@ package tibia.trade.npcTradeWidgetClasses
       
       protected static const SKILL_EXPERIENCE:int = 0;
       
-      protected static const TYPE_SUMMON_OTHERS:int = 4;
+      protected static const TYPE_NPC:int = 2;
       
-      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_EMBRACE_OF_TIBIA << 1;
+      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_SPARK_OF_PHOENIX << 1;
       
       protected static const SKILL_STAMINA:int = 17;
-      
-      protected static const TYPE_NPC:int = 2;
       
       protected static const STATE_NONE:int = -1;
       
@@ -128,15 +126,17 @@ package tibia.trade.npcTradeWidgetClasses
       
       protected static const PROFESSION_NONE:int = 0;
       
+      protected static const BLESSING_BLOOD_OF_THE_MOUNTAIN:int = BLESSING_HEART_OF_THE_MOUNTAIN << 1;
+      
       protected static const MAX_NAME_LENGTH:int = 29;
       
       protected static const PARTY_LEADER:int = 1;
       
+      protected static const SKILL_CARRYSTRENGTH:int = 7;
+      
       protected static const STATE_PZ_ENTERED:int = 14;
       
       public static const MODE_SELL:int = 1;
-      
-      protected static const SKILL_CARRYSTRENGTH:int = 7;
       
       protected static const PK_ATTACKER:int = 1;
       
@@ -147,6 +147,8 @@ package tibia.trade.npcTradeWidgetClasses
       protected static const GUILD_WAR_NEUTRAL:int = 3;
       
       protected static const STATE_DROWNING:int = 8;
+      
+      protected static const BLESSING_HEART_OF_THE_MOUNTAIN:int = BLESSING_EMBRACE_OF_TIBIA << 1;
       
       protected static const SKILL_LIFE_LEECH_AMOUNT:int = 22;
       
@@ -174,8 +176,6 @@ package tibia.trade.npcTradeWidgetClasses
       
       protected static const PROFESSION_MASK_NONE:int = 1 << PROFESSION_NONE;
       
-      protected static const TYPE_SUMMON_OWN:int = 3;
-      
       protected static const PROFESSION_MASK_SORCERER:int = 1 << PROFESSION_SORCERER;
       
       protected static const PROFESSION_KNIGHT:int = 1;
@@ -184,7 +184,7 @@ package tibia.trade.npcTradeWidgetClasses
       
       protected static const PARTY_LEADER_SEXP_INACTIVE_GUILTY:int = 8;
       
-      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_FIRE_OF_SUNS << 1;
+      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_TWIST_OF_FATE << 1;
       
       protected static const PROFESSION_PALADIN:int = 2;
       
@@ -200,7 +200,7 @@ package tibia.trade.npcTradeWidgetClasses
       
       protected static const STATE_FAST:int = 6;
       
-      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_SPARK_OF_PHOENIX << 1;
+      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_ADVENTURER << 1;
       
       protected static const SKILL_MANA_LEECH_AMOUNT:int = 24;
       
@@ -262,7 +262,9 @@ package tibia.trade.npcTradeWidgetClasses
       
       protected static const NPC_SPEECH_NORMAL:uint = 1;
       
-      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_ADVENTURER << 1;
+      protected static const TYPE_PLAYERSUMMON:int = 3;
+      
+      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_FIRE_OF_SUNS << 1;
       
       protected static const NPC_SPEECH_NONE:uint = 0;
       
@@ -308,11 +310,11 @@ package tibia.trade.npcTradeWidgetClasses
       
       protected var m_SellObjects:IList = null;
       
-      protected var m_UIObjectSelector:ObjectRefSelectorBase = null;
+      protected var m_UIObjectSelector:tibia.trade.npcTradeWidgetClasses.ObjectRefSelectorBase = null;
       
       private var m_UncommittedSellObjects:Boolean = false;
       
-      protected var m_UIAmountSelector:AmountSelector = null;
+      protected var m_UIAmountSelector:tibia.trade.npcTradeWidgetClasses.AmountSelector = null;
       
       private var m_UncommittedBuyObjects:Boolean = false;
       
@@ -322,7 +324,7 @@ package tibia.trade.npcTradeWidgetClasses
       
       private var m_UncommittedNPCName:Boolean = false;
       
-      protected var m_UICategorySelector:CategorySelector = null;
+      protected var m_UICategorySelector:tibia.trade.npcTradeWidgetClasses.CategorySelector = null;
       
       protected var m_UILabelCapacity:Label = null;
       
@@ -547,7 +549,7 @@ package tibia.trade.npcTradeWidgetClasses
          if(!this.m_UIConstructed)
          {
             super.createChildren();
-            this.m_UICategorySelector = new CategorySelector();
+            this.m_UICategorySelector = new tibia.trade.npcTradeWidgetClasses.CategorySelector();
             this.m_UICategorySelector.dataProvider = this.m_Categories;
             this.m_UICategorySelector.height = NaN;
             this.m_UICategorySelector.includeInLayout = this.m_Categories != null;
@@ -566,7 +568,7 @@ package tibia.trade.npcTradeWidgetClasses
             this.m_UITradeMode.setStyle("tabStyleName",getStyle("tradeModeTabStyle"));
             this.m_UITradeMode.setStyle("tabHeight",getStyle("tradeModeTabHeight"));
             this.m_UITradeMode.setStyle("tabWidth",getStyle("tradeModeTabWidth"));
-            _loc1_ = options == null || options.npcTradeLayout == ObjectRefSelectorBase.LAYOUT_GRID;
+            _loc1_ = options == null || options.npcTradeLayout == tibia.trade.npcTradeWidgetClasses.ObjectRefSelectorBase.LAYOUT_GRID;
             this.m_UIObjectLayout = new CustomButton();
             this.m_UIObjectLayout.toggle = true;
             this.m_UIObjectLayout.toolTip = resourceManager.getString(BUNDLE,!!_loc1_?"LAYOUT_MODE_GRID":"LAYOUT_MODE_LIST");
@@ -592,7 +594,7 @@ package tibia.trade.npcTradeWidgetClasses
             _loc2_.percentHeight = NaN;
             _loc2_.percentWidth = 100;
             _loc2_.styleName = getStyle("amountBoxStyle");
-            this.m_UIAmountSelector = new AmountSelector();
+            this.m_UIAmountSelector = new tibia.trade.npcTradeWidgetClasses.AmountSelector();
             this.m_UIAmountSelector.minimum = 1;
             this.m_UIAmountSelector.maximum = NPCTradeWidget.TRADE_MAX_AMOUNT;
             this.m_UIAmountSelector.percentHeight = NaN;
@@ -726,8 +728,8 @@ package tibia.trade.npcTradeWidgetClasses
       
       private function updateObjectSelector() : void
       {
-         var _loc1_:int = options != null?int(options.npcTradeLayout):int(ObjectRefSelectorBase.LAYOUT_LIST);
-         var _loc2_:int = options != null?int(options.npcTradeSort):int(ObjectRefSelectorBase.SORT_NAME);
+         var _loc1_:int = options != null?int(options.npcTradeLayout):int(tibia.trade.npcTradeWidgetClasses.ObjectRefSelectorBase.LAYOUT_LIST);
+         var _loc2_:int = options != null?int(options.npcTradeSort):int(tibia.trade.npcTradeWidgetClasses.ObjectRefSelectorBase.SORT_NAME);
          if(this.m_UIObjectSelector != null && this.m_UIObjectSelector.layout != _loc1_)
          {
             this.m_UIObjectSelector.dataProvider = null;
@@ -737,7 +739,7 @@ package tibia.trade.npcTradeWidgetClasses
          }
          if(this.m_UIObjectSelector == null)
          {
-            this.m_UIObjectSelector = ObjectRefSelectorBase.s_Create(_loc1_);
+            this.m_UIObjectSelector = tibia.trade.npcTradeWidgetClasses.ObjectRefSelectorBase.s_Create(_loc1_);
             this.m_UIObjectSelector.percentHeight = 100;
             this.m_UIObjectSelector.percentWidth = 100;
             this.m_UIObjectSelector.styleName = getStyle("objectSelectorStyle");
@@ -1183,8 +1185,8 @@ package tibia.trade.npcTradeWidgetClasses
       {
          if(options != null)
          {
-            options.npcTradeLayout = options.npcTradeLayout == ObjectRefSelectorBase.LAYOUT_GRID?int(ObjectRefSelectorBase.LAYOUT_LIST):int(ObjectRefSelectorBase.LAYOUT_GRID);
-            this.m_UIObjectLayout.toolTip = resourceManager.getString(BUNDLE,options.npcTradeLayout == ObjectRefSelectorBase.LAYOUT_GRID?"LAYOUT_MODE_GRID":"LAYOUT_MODE_LIST");
+            options.npcTradeLayout = options.npcTradeLayout == tibia.trade.npcTradeWidgetClasses.ObjectRefSelectorBase.LAYOUT_GRID?int(tibia.trade.npcTradeWidgetClasses.ObjectRefSelectorBase.LAYOUT_LIST):int(tibia.trade.npcTradeWidgetClasses.ObjectRefSelectorBase.LAYOUT_GRID);
+            this.m_UIObjectLayout.toolTip = resourceManager.getString(BUNDLE,options.npcTradeLayout == tibia.trade.npcTradeWidgetClasses.ObjectRefSelectorBase.LAYOUT_GRID?"LAYOUT_MODE_GRID":"LAYOUT_MODE_LIST");
          }
       }
    }

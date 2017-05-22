@@ -2,8 +2,8 @@ package tibia.appearances
 {
    import flash.geom.Rectangle;
    import flash.utils.Dictionary;
-   import tibia.appearances.widgetClasses.CachedSpriteInformation;
    import tibia.game.SpritesAsset;
+   import tibia.appearances.widgetClasses.CachedSpriteInformation;
    
    public class SpritesInformation
    {

@@ -1,18 +1,18 @@
 package tibia.magic.spellListWidgetClasses
 {
-   import flash.display.DisplayObjectContainer;
-   import flash.events.Event;
-   import flash.events.MouseEvent;
    import mx.containers.HBox;
-   import mx.controls.listClasses.ListBase;
-   import mx.core.DragSource;
-   import mx.core.EventPriority;
-   import mx.events.ListEvent;
+   import tibia.creatures.Player;
    import mx.events.PropertyChangeEvent;
+   import mx.core.EventPriority;
+   import tibia.magic.Spell;
+   import mx.controls.listClasses.ListBase;
+   import flash.display.DisplayObjectContainer;
+   import mx.events.ListEvent;
+   import flash.events.Event;
+   import mx.core.DragSource;
+   import flash.events.MouseEvent;
    import mx.events.SandboxMouseEvent;
    import mx.managers.DragManager;
-   import tibia.creatures.Player;
-   import tibia.magic.Spell;
    
    public class SpellTileRenderer extends HBox
    {
@@ -55,13 +55,11 @@ package tibia.magic.spellListWidgetClasses
       
       protected static const SKILL_EXPERIENCE:int = 0;
       
-      protected static const TYPE_SUMMON_OTHERS:int = 4;
+      protected static const TYPE_NPC:int = 2;
       
-      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_EMBRACE_OF_TIBIA << 1;
+      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_SPARK_OF_PHOENIX << 1;
       
       protected static const SKILL_STAMINA:int = 17;
-      
-      protected static const TYPE_NPC:int = 2;
       
       protected static const STATE_NONE:int = -1;
       
@@ -107,13 +105,15 @@ package tibia.magic.spellListWidgetClasses
       
       protected static const PROFESSION_NONE:int = 0;
       
+      protected static const BLESSING_BLOOD_OF_THE_MOUNTAIN:int = BLESSING_HEART_OF_THE_MOUNTAIN << 1;
+      
       protected static const MAX_NAME_LENGTH:int = 29;
       
       protected static const PARTY_LEADER:int = 1;
       
-      protected static const STATE_PZ_ENTERED:int = 14;
-      
       protected static const SKILL_CARRYSTRENGTH:int = 7;
+      
+      protected static const STATE_PZ_ENTERED:int = 14;
       
       protected static const PK_ATTACKER:int = 1;
       
@@ -124,6 +124,8 @@ package tibia.magic.spellListWidgetClasses
       protected static const GUILD_WAR_NEUTRAL:int = 3;
       
       protected static const STATE_DROWNING:int = 8;
+      
+      protected static const BLESSING_HEART_OF_THE_MOUNTAIN:int = BLESSING_EMBRACE_OF_TIBIA << 1;
       
       protected static const SKILL_LIFE_LEECH_AMOUNT:int = 22;
       
@@ -151,8 +153,6 @@ package tibia.magic.spellListWidgetClasses
       
       protected static const PROFESSION_MASK_NONE:int = 1 << PROFESSION_NONE;
       
-      protected static const TYPE_SUMMON_OWN:int = 3;
-      
       protected static const PROFESSION_MASK_SORCERER:int = 1 << PROFESSION_SORCERER;
       
       protected static const PROFESSION_KNIGHT:int = 1;
@@ -161,7 +161,7 @@ package tibia.magic.spellListWidgetClasses
       
       protected static const PARTY_LEADER_SEXP_INACTIVE_GUILTY:int = 8;
       
-      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_FIRE_OF_SUNS << 1;
+      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_TWIST_OF_FATE << 1;
       
       protected static const PROFESSION_PALADIN:int = 2;
       
@@ -181,7 +181,7 @@ package tibia.magic.spellListWidgetClasses
       
       protected static const STATE_FAST:int = 6;
       
-      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_SPARK_OF_PHOENIX << 1;
+      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_ADVENTURER << 1;
       
       protected static const SKILL_MANA_LEECH_AMOUNT:int = 24;
       
@@ -243,9 +243,11 @@ package tibia.magic.spellListWidgetClasses
       
       protected static const NPC_SPEECH_NORMAL:uint = 1;
       
+      protected static const TYPE_PLAYERSUMMON:int = 3;
+      
       protected static const DRAG_OPACITY:Number = 0.75;
       
-      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_ADVENTURER << 1;
+      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_FIRE_OF_SUNS << 1;
       
       protected static const NPC_SPEECH_NONE:uint = 0;
       
@@ -272,7 +274,7 @@ package tibia.magic.spellListWidgetClasses
       
       private var m_UncommittedAvailable:Boolean = false;
       
-      private var m_UISpellIcon:SpellIconRenderer = null;
+      private var m_UISpellIcon:tibia.magic.spellListWidgetClasses.SpellIconRenderer = null;
       
       public function SpellTileRenderer()
       {
@@ -397,7 +399,7 @@ package tibia.magic.spellListWidgetClasses
          if(!this.m_UIConstructed)
          {
             super.createChildren();
-            this.m_UISpellIcon = new SpellIconRenderer();
+            this.m_UISpellIcon = new tibia.magic.spellListWidgetClasses.SpellIconRenderer();
             this.m_UISpellIcon.styleName = "spellListWidgetSpellIconRenderer";
             addChild(this.m_UISpellIcon);
             this.m_UIConstructed = true;
@@ -423,7 +425,7 @@ package tibia.magic.spellListWidgetClasses
       private function onDragControl(param1:Event) : void
       {
          var _loc2_:DragSource = null;
-         var _loc3_:SpellIconRenderer = null;
+         var _loc3_:tibia.magic.spellListWidgetClasses.SpellIconRenderer = null;
          if(this.spell == null)
          {
             return;
@@ -439,7 +441,7 @@ package tibia.magic.spellListWidgetClasses
                _loc2_ = new DragSource();
                _loc2_.addData(DRAG_TYPE_SPELL,"dragType");
                _loc2_.addData(this.spell,"dragSpell");
-               _loc3_ = new SpellIconRenderer();
+               _loc3_ = new tibia.magic.spellListWidgetClasses.SpellIconRenderer();
                _loc3_.spell = this.spell;
                _loc3_.available = true;
                _loc3_.selected = false;

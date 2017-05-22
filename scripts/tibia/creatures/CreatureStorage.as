@@ -2,17 +2,17 @@ package tibia.creatures
 {
    import flash.display.BitmapData;
    import flash.geom.Rectangle;
-   import mx.collections.ArrayCollection;
-   import mx.collections.IList;
-   import mx.collections.Sort;
    import mx.core.BitmapAsset;
-   import mx.events.PropertyChangeEvent;
-   import shared.utility.Vector3D;
-   import tibia.appearances.AppearanceInstance;
-   import tibia.appearances.Marks;
-   import tibia.appearances.ObjectInstance;
+   import mx.collections.Sort;
    import tibia.network.Communication;
+   import shared.utility.Vector3D;
    import tibia.options.OptionsStorage;
+   import tibia.appearances.Marks;
+   import mx.collections.IList;
+   import mx.events.PropertyChangeEvent;
+   import mx.collections.ArrayCollection;
+   import tibia.appearances.ObjectInstance;
+   import tibia.appearances.AppearanceInstance;
    
    public class CreatureStorage
    {
@@ -65,15 +65,13 @@ package tibia.creatures
       
       protected static const ONSCREEN_MESSAGE_HEIGHT:int = 195;
       
-      protected static const TYPE_SUMMON_OTHERS:int = 4;
+      protected static const TYPE_NPC:int = 2;
       
-      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_EMBRACE_OF_TIBIA << 1;
+      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_SPARK_OF_PHOENIX << 1;
       
       protected static const SKILL_STAMINA:int = 17;
       
       private static const SPEECH_FLAG_CLASS:Class = CreatureStorage_SPEECH_FLAG_CLASS;
-      
-      protected static const TYPE_NPC:int = 2;
       
       protected static const STATE_NONE:int = -1;
       
@@ -127,6 +125,8 @@ package tibia.creatures
       
       protected static const PROFESSION_NONE:int = 0;
       
+      protected static const BLESSING_BLOOD_OF_THE_MOUNTAIN:int = BLESSING_HEART_OF_THE_MOUNTAIN << 1;
+      
       protected static const MAX_NAME_LENGTH:int = 29;
       
       protected static const PARTY_LEADER:int = 1;
@@ -135,11 +135,11 @@ package tibia.creatures
       
       public static const STATE_FLAG_SIZE:int = 11;
       
+      protected static const SKILL_CARRYSTRENGTH:int = 7;
+      
       protected static const STATE_PZ_ENTERED:int = 14;
       
       public static const MARK_AIM:uint = MARK_NUM_COLOURS + 1;
-      
-      protected static const SKILL_CARRYSTRENGTH:int = 7;
       
       protected static const PK_ATTACKER:int = 1;
       
@@ -162,6 +162,8 @@ package tibia.creatures
       public static const MARK_AIM_FOLLOW:uint = MARK_NUM_COLOURS + 3;
       
       protected static const MAP_MIN_X:int = 24576;
+      
+      protected static const BLESSING_HEART_OF_THE_MOUNTAIN:int = BLESSING_EMBRACE_OF_TIBIA << 1;
       
       protected static const SKILL_LIFE_LEECH_AMOUNT:int = 22;
       
@@ -205,8 +207,6 @@ package tibia.creatures
       
       protected static const FIELD_ENTER_NOT_POSSIBLE:uint = 2;
       
-      protected static const TYPE_SUMMON_OWN:int = 3;
-      
       protected static const PROFESSION_MASK_SORCERER:int = 1 << PROFESSION_SORCERER;
       
       protected static const PROFESSION_KNIGHT:int = 1;
@@ -219,7 +219,7 @@ package tibia.creatures
       
       protected static const UNDERGROUND_LAYER:int = 2;
       
-      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_FIRE_OF_SUNS << 1;
+      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_TWIST_OF_FATE << 1;
       
       public static const FILTER_PARTY:int = 16;
       
@@ -257,7 +257,7 @@ package tibia.creatures
       
       protected static const STATE_FAST:int = 6;
       
-      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_SPARK_OF_PHOENIX << 1;
+      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_ADVENTURER << 1;
       
       public static const MARK_AIM_ATTACK:uint = MARK_NUM_COLOURS + 2;
       
@@ -349,13 +349,15 @@ package tibia.creatures
       
       protected static const NPC_SPEECH_NORMAL:uint = 1;
       
+      protected static const TYPE_PLAYERSUMMON:int = 3;
+      
       public static const SORT_HITPOINTS_DESC:int = 5;
       
       protected static const MAPSIZE_W:int = 10;
       
       public static const SPEECH_FLAG_SIZE:int = 18;
       
-      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_ADVENTURER << 1;
+      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_FIRE_OF_SUNS << 1;
       
       public static const FILTER_MONSTER:int = 4;
       
@@ -370,11 +372,11 @@ package tibia.creatures
       
       protected var m_OpponentsSort:Sort = null;
       
-      protected var m_Player:Player = null;
+      protected var m_Player:tibia.creatures.Player = null;
       
       protected var m_CreatureCount:int = 0;
       
-      protected var m_AttackTarget:Creature = null;
+      protected var m_AttackTarget:tibia.creatures.Creature = null;
       
       protected var m_Options:OptionsStorage = null;
       
@@ -382,23 +384,23 @@ package tibia.creatures
       
       protected var m_Opponents:ArrayCollection = null;
       
-      protected var m_Aim:Creature = null;
+      protected var m_Aim:tibia.creatures.Creature = null;
       
-      protected var m_FollowTarget:Creature = null;
+      protected var m_FollowTarget:tibia.creatures.Creature = null;
       
-      protected var m_Trappers:Vector.<Creature> = null;
+      protected var m_Trappers:Vector.<tibia.creatures.Creature> = null;
       
       protected var m_CreatureIndex:int = 0;
       
       protected var m_MaxCreaturesCount:uint = 1300;
       
-      protected var m_Creature:Vector.<Creature> = null;
+      protected var m_Creature:Vector.<tibia.creatures.Creature> = null;
       
       public function CreatureStorage()
       {
          super();
-         this.m_Player = new Player();
-         this.m_Creature = new Vector.<Creature>();
+         this.m_Player = new tibia.creatures.Player();
+         this.m_Creature = new Vector.<tibia.creatures.Creature>();
          this.m_OpponentsSort = new Sort();
          this.m_OpponentsSort.compareFunction = this.opponentComparator;
          this.m_Opponents = new ArrayCollection();
@@ -516,9 +518,9 @@ package tibia.creatures
          return SPEECH_FLAG_BITMAP;
       }
       
-      public function setAim(param1:Creature) : void
+      public function setAim(param1:tibia.creatures.Creature) : void
       {
-         var _loc2_:Creature = null;
+         var _loc2_:tibia.creatures.Creature = null;
          if(this.m_Aim != param1)
          {
             _loc2_ = this.m_Aim;
@@ -528,7 +530,7 @@ package tibia.creatures
          }
       }
       
-      public function getNextAttackTarget(param1:int) : Creature
+      public function getNextAttackTarget(param1:int) : tibia.creatures.Creature
       {
          param1 = param1 < 0?-1:1;
          var _loc2_:int = this.m_Opponents.length;
@@ -542,7 +544,7 @@ package tibia.creatures
          {
             _loc3_ = this.m_Opponents.getItemIndex(this.m_AttackTarget);
          }
-         var _loc5_:Creature = null;
+         var _loc5_:tibia.creatures.Creature = null;
          while(_loc4_++ < _loc2_)
          {
             _loc3_ = _loc3_ + param1;
@@ -563,7 +565,7 @@ package tibia.creatures
          return null;
       }
       
-      public function getAim() : Creature
+      public function getAim() : tibia.creatures.Creature
       {
          return this.m_Aim;
       }
@@ -583,7 +585,7 @@ package tibia.creatures
          }
       }
       
-      public function replaceCreature(param1:Creature, param2:int = 0) : Creature
+      public function replaceCreature(param1:tibia.creatures.Creature, param2:int = 0) : tibia.creatures.Creature
       {
          if(param1 == null)
          {
@@ -601,7 +603,7 @@ package tibia.creatures
          var _loc4_:* = -1;
          var _loc5_:int = 0;
          var _loc6_:int = this.m_CreatureCount - 1;
-         var _loc7_:Creature = null;
+         var _loc7_:tibia.creatures.Creature = null;
          while(_loc5_ <= _loc6_)
          {
             _loc4_ = _loc5_ + _loc6_ >> 1;
@@ -626,13 +628,13 @@ package tibia.creatures
          return param1;
       }
       
-      public function toggleFollowTarget(param1:Creature, param2:Boolean) : void
+      public function toggleFollowTarget(param1:tibia.creatures.Creature, param2:Boolean) : void
       {
          if(param1 == this.m_Player)
          {
             throw new ArgumentError("CreatureStorage.toggleFollowTarget: Cannot follow player.");
          }
-         var _loc3_:Creature = this.m_FollowTarget;
+         var _loc3_:tibia.creatures.Creature = this.m_FollowTarget;
          if(_loc3_ != param1)
          {
             this.m_FollowTarget = param1;
@@ -655,7 +657,7 @@ package tibia.creatures
          }
          this.updateExtendedMark(_loc3_);
          this.updateExtendedMark(this.m_FollowTarget);
-         var _loc5_:Creature = this.m_AttackTarget;
+         var _loc5_:tibia.creatures.Creature = this.m_AttackTarget;
          if(_loc5_ != null)
          {
             this.m_AttackTarget = null;
@@ -663,9 +665,9 @@ package tibia.creatures
          }
       }
       
-      public function getCreatureByName(param1:String) : Creature
+      public function getCreatureByName(param1:String) : tibia.creatures.Creature
       {
-         var _loc2_:Creature = null;
+         var _loc2_:tibia.creatures.Creature = null;
          for each(_loc2_ in this.m_Creature)
          {
             if(_loc2_.name == param1)
@@ -676,12 +678,12 @@ package tibia.creatures
          return null;
       }
       
-      public function getFollowTarget() : Creature
+      public function getFollowTarget() : tibia.creatures.Creature
       {
          return this.m_FollowTarget;
       }
       
-      public function getTrappers() : Vector.<Creature>
+      public function getTrappers() : Vector.<tibia.creatures.Creature>
       {
          return this.m_Trappers;
       }
@@ -718,13 +720,13 @@ package tibia.creatures
       
       protected function opponentComparator(param1:Object, param2:Object, param3:Array = null) : int
       {
-         var _loc4_:Creature = null;
-         var _loc5_:Creature = null;
+         var _loc4_:tibia.creatures.Creature = null;
+         var _loc5_:tibia.creatures.Creature = null;
          var _loc8_:Vector3D = null;
          var _loc9_:Number = NaN;
          var _loc10_:Number = NaN;
-         _loc4_ = param1 as Creature;
-         _loc5_ = param2 as Creature;
+         _loc4_ = param1 as tibia.creatures.Creature;
+         _loc5_ = param2 as tibia.creatures.Creature;
          var _loc6_:int = 0;
          var _loc7_:Boolean = true;
          if(_loc4_ != null && _loc5_ != null && this.m_Options != null)
@@ -793,14 +795,14 @@ package tibia.creatures
          return -_loc6_;
       }
       
-      public function setFollowTarget(param1:Creature, param2:Boolean) : void
+      public function setFollowTarget(param1:tibia.creatures.Creature, param2:Boolean) : void
       {
          var _loc5_:Communication = null;
          if(param1 == this.m_Player)
          {
             throw new ArgumentError("CreatureStorage.setFollowTarget: Cannot follow player.");
          }
-         var _loc3_:Creature = this.m_FollowTarget;
+         var _loc3_:tibia.creatures.Creature = this.m_FollowTarget;
          if(_loc3_ != param1)
          {
             this.m_FollowTarget = param1;
@@ -819,7 +821,7 @@ package tibia.creatures
             this.updateExtendedMark(_loc3_);
             this.updateExtendedMark(this.m_FollowTarget);
          }
-         var _loc4_:Creature = this.m_AttackTarget;
+         var _loc4_:tibia.creatures.Creature = this.m_AttackTarget;
          if(_loc4_ != null)
          {
             this.m_AttackTarget = null;
@@ -832,12 +834,12 @@ package tibia.creatures
          return this.m_Options;
       }
       
-      public function isOpponent(param1:Creature) : Boolean
+      public function isOpponent(param1:tibia.creatures.Creature) : Boolean
       {
          return this.opponentFilter(param1,false);
       }
       
-      protected function updateExtendedMark(param1:Creature) : void
+      protected function updateExtendedMark(param1:tibia.creatures.Creature) : void
       {
          var _loc2_:Marks = null;
          var _loc3_:uint = 0;
@@ -874,7 +876,7 @@ package tibia.creatures
          }
       }
       
-      public function setTrappers(param1:Vector.<Creature>) : void
+      public function setTrappers(param1:Vector.<tibia.creatures.Creature>) : void
       {
          var _loc2_:int = 0;
          _loc2_ = this.m_Trappers != null?this.m_Trappers.length:0 - 1;
@@ -898,12 +900,12 @@ package tibia.creatures
          }
       }
       
-      public function getCreature(param1:int) : Creature
+      public function getCreature(param1:int) : tibia.creatures.Creature
       {
          var _loc2_:* = 0;
          var _loc3_:int = 0;
          var _loc4_:int = this.m_CreatureCount - 1;
-         var _loc5_:Creature = null;
+         var _loc5_:tibia.creatures.Creature = null;
          while(_loc3_ <= _loc4_)
          {
             _loc2_ = _loc3_ + _loc4_ >> 1;
@@ -957,8 +959,8 @@ package tibia.creatures
       
       public function markOpponentVisible(param1:*, param2:Boolean) : void
       {
-         var _loc3_:Creature = null;
-         if(param1 is Creature)
+         var _loc3_:tibia.creatures.Creature = null;
+         if(param1 is tibia.creatures.Creature)
          {
             _loc3_ = Creature(param1);
          }
@@ -983,8 +985,8 @@ package tibia.creatures
       
       protected function opponentFilter(param1:Object, param2:Boolean = true) : Boolean
       {
-         var _loc3_:Creature = param1 as Creature;
-         if(_loc3_ == null || _loc3_ is Player)
+         var _loc3_:tibia.creatures.Creature = param1 as tibia.creatures.Creature;
+         if(_loc3_ == null || _loc3_ is tibia.creatures.Player)
          {
             return false;
          }
@@ -1077,7 +1079,7 @@ package tibia.creatures
          var _loc3_:* = 0;
          var _loc4_:int = 0;
          var _loc5_:int = this.m_CreatureCount - 1;
-         var _loc6_:Creature = null;
+         var _loc6_:tibia.creatures.Creature = null;
          while(_loc4_ <= _loc5_)
          {
             _loc3_ = _loc4_ + _loc5_ >> 1;
@@ -1135,12 +1137,12 @@ package tibia.creatures
          this.m_OpponentsState = OPPONENTS_REBUILD;
       }
       
-      public function get player() : Player
+      public function get player() : tibia.creatures.Player
       {
          return this.m_Player;
       }
       
-      public function getAttackTarget() : Creature
+      public function getAttackTarget() : tibia.creatures.Creature
       {
          return this.m_AttackTarget;
       }
@@ -1160,13 +1162,13 @@ package tibia.creatures
          }
       }
       
-      public function toggleAttackTarget(param1:Creature, param2:Boolean) : void
+      public function toggleAttackTarget(param1:tibia.creatures.Creature, param2:Boolean) : void
       {
          if(param1 == this.m_Player)
          {
             throw new ArgumentError("CreatureStorage.toggleAttackTarget: Cannot attack player.");
          }
-         var _loc3_:Creature = this.m_AttackTarget;
+         var _loc3_:tibia.creatures.Creature = this.m_AttackTarget;
          if(_loc3_ != param1)
          {
             this.m_AttackTarget = param1;
@@ -1189,7 +1191,7 @@ package tibia.creatures
          }
          this.updateExtendedMark(_loc3_);
          this.updateExtendedMark(this.m_AttackTarget);
-         var _loc5_:Creature = this.m_FollowTarget;
+         var _loc5_:tibia.creatures.Creature = this.m_FollowTarget;
          if(this.m_AttackTarget != null && _loc5_ != null)
          {
             this.m_FollowTarget = null;
@@ -1215,14 +1217,14 @@ package tibia.creatures
          }
       }
       
-      public function setAttackTarget(param1:Creature, param2:Boolean) : void
+      public function setAttackTarget(param1:tibia.creatures.Creature, param2:Boolean) : void
       {
          var _loc5_:Communication = null;
          if(param1 == this.m_Player)
          {
             throw new ArgumentError("CreatureStorage.setAttackTarget: Cannot attack player.");
          }
-         var _loc3_:Creature = this.m_AttackTarget;
+         var _loc3_:tibia.creatures.Creature = this.m_AttackTarget;
          if(_loc3_ != param1)
          {
             this.m_AttackTarget = param1;
@@ -1241,7 +1243,7 @@ package tibia.creatures
             this.updateExtendedMark(_loc3_);
             this.updateExtendedMark(this.m_AttackTarget);
          }
-         var _loc4_:Creature = this.m_FollowTarget;
+         var _loc4_:tibia.creatures.Creature = this.m_FollowTarget;
          if(_loc4_ != null)
          {
             this.m_FollowTarget = null;

@@ -1,13 +1,13 @@
 package tibia.input.gameaction
 {
+   import tibia.input.IActionImpl;
+   import tibia.game.BugReportWidget;
+   import tibia.worldmap.WorldMapStorage;
+   import tibia.chat.ChatStorage;
+   import tibia.network.Communication;
    import mx.events.CloseEvent;
    import mx.resources.ResourceManager;
-   import tibia.chat.ChatStorage;
    import tibia.chat.MessageMode;
-   import tibia.game.BugReportWidget;
-   import tibia.input.IActionImpl;
-   import tibia.network.Communication;
-   import tibia.worldmap.WorldMapStorage;
    
    public class SendBugReportActionImpl implements IActionImpl
    {

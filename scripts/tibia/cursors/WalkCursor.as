@@ -1,11 +1,11 @@
 package tibia.cursors
 {
-   import flash.display.Bitmap;
    import flash.display.BitmapData;
-   import flash.geom.Point;
    import flash.geom.Rectangle;
-   import flash.ui.Mouse;
    import flash.ui.MouseCursorData;
+   import flash.display.Bitmap;
+   import flash.geom.Point;
+   import flash.ui.Mouse;
    
    public class WalkCursor
    {

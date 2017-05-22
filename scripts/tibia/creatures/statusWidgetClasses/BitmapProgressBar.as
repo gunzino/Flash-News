@@ -1,20 +1,20 @@
 package tibia.creatures.statusWidgetClasses
 {
-   import flash.display.Bitmap;
-   import flash.display.BitmapData;
-   import flash.filters.BitmapFilterQuality;
-   import flash.filters.GlowFilter;
-   import flash.geom.Matrix;
-   import flash.geom.Rectangle;
-   import flash.text.TextField;
-   import flash.text.TextFieldAutoSize;
-   import flash.text.TextFormat;
-   import mx.core.EdgeMetrics;
    import mx.core.UIComponent;
+   import flash.geom.Matrix;
    import mx.styles.CSSStyleDeclaration;
    import mx.styles.StyleManager;
-   import mx.utils.StringUtil;
+   import mx.core.EdgeMetrics;
+   import flash.display.Bitmap;
    import shared.skins.BitmapGrid;
+   import flash.text.TextFormat;
+   import flash.text.TextField;
+   import flash.text.TextFieldAutoSize;
+   import flash.filters.GlowFilter;
+   import flash.filters.BitmapFilterQuality;
+   import mx.utils.StringUtil;
+   import flash.display.BitmapData;
+   import flash.geom.Rectangle;
    
    public class BitmapProgressBar extends UIComponent
    {

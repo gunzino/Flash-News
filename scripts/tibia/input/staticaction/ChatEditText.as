@@ -1,7 +1,7 @@
 package tibia.input.staticaction
 {
-   import flash.ui.Keyboard;
    import tibia.chat.ChatWidget;
+   import flash.ui.Keyboard;
    
    public class ChatEditText extends StaticAction
    {

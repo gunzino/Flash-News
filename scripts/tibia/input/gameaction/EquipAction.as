@@ -1,14 +1,14 @@
 package tibia.input.gameaction
 {
-   import mx.resources.IResourceManager;
-   import mx.resources.ResourceManager;
-   import tibia.appearances.AppearanceStorage;
-   import tibia.appearances.AppearanceType;
-   import tibia.appearances.ObjectInstance;
-   import tibia.container.BodyContainerView;
-   import tibia.container.ContainerStorage;
    import tibia.input.IAction;
+   import tibia.appearances.AppearanceStorage;
    import tibia.network.Communication;
+   import tibia.container.ContainerStorage;
+   import tibia.appearances.AppearanceType;
+   import mx.resources.ResourceManager;
+   import mx.resources.IResourceManager;
+   import tibia.container.BodyContainerView;
+   import tibia.appearances.ObjectInstance;
    
    public class EquipAction implements IAction
    {

@@ -1,9 +1,9 @@
 package tibia.controls
 {
-   import flash.display.DisplayObject;
-   import mx.core.IUIComponent;
    import mx.core.UIComponent;
+   import mx.core.IUIComponent;
    import mx.events.PropertyChangeEvent;
+   import flash.display.DisplayObject;
    
    public class GridContainer extends UIComponent
    {

@@ -1,9 +1,9 @@
 package tibia.input.staticaction
 {
-   import mx.collections.IList;
-   import tibia.chat.Channel;
    import tibia.chat.ChatStorage;
    import tibia.chat.ChatWidget;
+   import mx.collections.IList;
+   import tibia.chat.Channel;
    
    public class ChatTabCycle extends StaticAction
    {

@@ -1,9 +1,9 @@
 package tibia.magic.spellListWidgetClasses
 {
-   import mx.containers.VBox;
    import mx.controls.Label;
-   import shared.controls.CustomLabel;
    import tibia.magic.Spell;
+   import mx.containers.VBox;
+   import shared.controls.CustomLabel;
    
    public class SpellListRenderer extends SpellTileRenderer
    {

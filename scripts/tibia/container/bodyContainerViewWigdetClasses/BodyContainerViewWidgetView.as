@@ -1,47 +1,47 @@
 package tibia.container.bodyContainerViewWigdetClasses
 {
-   import build.ObjectDragImplFactory;
-   import flash.events.MouseEvent;
-   import flash.events.TimerEvent;
-   import flash.filters.BitmapFilterQuality;
-   import flash.filters.GlowFilter;
-   import flash.geom.Point;
-   import flash.text.TextField;
-   import flash.text.TextFieldAutoSize;
-   import flash.text.TextFormat;
-   import mx.containers.Box;
-   import mx.containers.HBox;
-   import mx.controls.Button;
-   import mx.controls.Label;
-   import mx.core.EdgeMetrics;
-   import mx.core.ScrollPolicy;
-   import mx.events.PropertyChangeEvent;
-   import mx.managers.CursorManagerPriority;
-   import shared.controls.CustomButton;
-   import shared.utility.Vector3D;
-   import shared.utility.getClassInstanceUnderPoint;
-   import tibia.appearances.AppearanceInstance;
-   import tibia.container.BodyContainerView;
-   import tibia.container.ContainerStorage;
-   import tibia.container.containerViewWidgetClasses.ContainerSlot;
-   import tibia.creatures.Player;
-   import tibia.cursors.CursorHelper;
-   import tibia.game.IMoveWidget;
+   import tibia.sidebar.sideBarWidgetClasses.WidgetView;
    import tibia.game.IUseWidget;
-   import tibia.game.ObjectContextMenu;
+   import tibia.game.IMoveWidget;
+   import tibia.container.BodyContainerView;
+   import flash.text.TextField;
+   import flash.events.MouseEvent;
    import tibia.game.ObjectDragImpl;
    import tibia.help.UIEffectsRetrieveComponentCommandEvent;
-   import tibia.ingameshop.IngameShopEvent;
-   import tibia.ingameshop.IngameShopManager;
-   import tibia.ingameshop.IngameShopProduct;
+   import mx.controls.Button;
+   import tibia.creatures.Player;
+   import mx.controls.Label;
+   import flash.events.TimerEvent;
+   import tibia.container.containerViewWidgetClasses.ContainerSlot;
+   import flash.text.TextFieldAutoSize;
+   import flash.filters.GlowFilter;
+   import flash.filters.BitmapFilterQuality;
+   import mx.containers.HBox;
+   import shared.controls.CustomButton;
+   import flash.geom.Point;
+   import shared.utility.getClassInstanceUnderPoint;
+   import shared.utility.Vector3D;
+   import mx.events.PropertyChangeEvent;
    import tibia.input.ModifierKeyEvent;
+   import tibia.ingameshop.IngameShopManager;
+   import tibia.ingameshop.IngameShopEvent;
+   import tibia.container.ContainerStorage;
+   import tibia.appearances.AppearanceInstance;
+   import tibia.input.gameaction.UseActionImpl;
+   import flash.text.TextFormat;
+   import tibia.cursors.CursorHelper;
+   import mx.core.EdgeMetrics;
+   import tibia.input.mapping.MouseBinding;
    import tibia.input.MouseActionHelper;
    import tibia.input.gameaction.LookActionImpl;
-   import tibia.input.gameaction.UseActionImpl;
-   import tibia.input.mapping.MouseBinding;
-   import tibia.sidebar.sideBarWidgetClasses.WidgetView;
+   import tibia.game.ObjectContextMenu;
+   import mx.containers.Box;
    import tibia.§sidebar:ns_sidebar_internal§.widgetClosed;
    import tibia.§sidebar:ns_sidebar_internal§.widgetCollapsed;
+   import tibia.ingameshop.IngameShopProduct;
+   import build.ObjectDragImplFactory;
+   import mx.managers.CursorManagerPriority;
+   import mx.core.ScrollPolicy;
    
    public class BodyContainerViewWidgetView extends WidgetView implements IUseWidget, IMoveWidget
    {
@@ -180,6 +180,8 @@ package tibia.container.bodyContainerViewWigdetClasses
       
       protected static const PARTY_MAX_FLASHING_TIME:uint = 5000;
       
+      private static const ACTION_USE_OR_OPEN:int = 101;
+      
       protected static const STATE_PZ_BLOCK:int = 13;
       
       protected static const PARTY_MEMBER_SEXP_ACTIVE:int = 5;
@@ -212,13 +214,11 @@ package tibia.container.bodyContainerViewWigdetClasses
       
       private static const MOUSE_BUTTON_LEFT:int = 1;
       
-      protected static const TYPE_SUMMON_OTHERS:int = 4;
+      protected static const TYPE_NPC:int = 2;
       
-      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_EMBRACE_OF_TIBIA << 1;
+      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_SPARK_OF_PHOENIX << 1;
       
       protected static const SKILL_STAMINA:int = 17;
-      
-      protected static const TYPE_NPC:int = 2;
       
       protected static const STATE_NONE:int = -1;
       
@@ -270,17 +270,19 @@ package tibia.container.bodyContainerViewWigdetClasses
       
       public static const HIGHLIGHT_TIMEOUT:int = 1000 * 60 * 10;
       
-      private static const WIDGET_VIEW_HEIGHT:Number = 179;
+      protected static const BLESSING_BLOOD_OF_THE_MOUNTAIN:int = BLESSING_HEART_OF_THE_MOUNTAIN << 1;
       
       protected static const MAX_NAME_LENGTH:int = 29;
       
       protected static const PARTY_LEADER:int = 1;
       
+      private static const WIDGET_VIEW_HEIGHT:Number = 179;
+      
+      protected static const SKILL_CARRYSTRENGTH:int = 7;
+      
       protected static const STATE_PZ_ENTERED:int = 14;
       
       private static const ACTION_OPEN:int = 8;
-      
-      protected static const SKILL_CARRYSTRENGTH:int = 7;
       
       protected static const PK_ATTACKER:int = 1;
       
@@ -291,6 +293,8 @@ package tibia.container.bodyContainerViewWigdetClasses
       protected static const GUILD_WAR_NEUTRAL:int = 3;
       
       protected static const STATE_DROWNING:int = 8;
+      
+      protected static const BLESSING_HEART_OF_THE_MOUNTAIN:int = BLESSING_EMBRACE_OF_TIBIA << 1;
       
       protected static const SKILL_LIFE_LEECH_AMOUNT:int = 22;
       
@@ -322,8 +326,6 @@ package tibia.container.bodyContainerViewWigdetClasses
       
       protected static const PROFESSION_MASK_NONE:int = 1 << PROFESSION_NONE;
       
-      protected static const TYPE_SUMMON_OWN:int = 3;
-      
       protected static const PROFESSION_MASK_SORCERER:int = 1 << PROFESSION_SORCERER;
       
       protected static const PROFESSION_KNIGHT:int = 1;
@@ -334,7 +336,7 @@ package tibia.container.bodyContainerViewWigdetClasses
       
       private static const CONFIRMATION_TIMEOUT:int = 1000 * 30;
       
-      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_FIRE_OF_SUNS << 1;
+      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_TWIST_OF_FATE << 1;
       
       private static const ACTION_SMARTCLICK:int = 100;
       
@@ -354,7 +356,7 @@ package tibia.container.bodyContainerViewWigdetClasses
       
       protected static const STATE_FAST:int = 6;
       
-      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_SPARK_OF_PHOENIX << 1;
+      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_ADVENTURER << 1;
       
       protected static const SKILL_MANA_LEECH_AMOUNT:int = 24;
       
@@ -404,8 +406,6 @@ package tibia.container.bodyContainerViewWigdetClasses
       
       private static const ACTION_UNSET:int = -1;
       
-      private static const ACTION_AUTOWALK_HIGHLIGHT:int = 4;
-      
       protected static const PK_AGGRESSOR:int = 3;
       
       protected static const GUILD_WAR_ENEMY:int = 2;
@@ -413,6 +413,8 @@ package tibia.container.bodyContainerViewWigdetClasses
       protected static const SKILL_LEVEL:int = 1;
       
       protected static const STATE_STRENGTHENED:int = 12;
+      
+      private static const ACTION_AUTOWALK_HIGHLIGHT:int = 4;
       
       protected static const STATE_HUNGRY:int = 31;
       
@@ -432,9 +434,9 @@ package tibia.container.bodyContainerViewWigdetClasses
       
       protected static const NPC_SPEECH_NORMAL:uint = 1;
       
-      private static const ACTION_USE_OR_OPEN:int = 101;
+      protected static const TYPE_PLAYERSUMMON:int = 3;
       
-      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_ADVENTURER << 1;
+      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_FIRE_OF_SUNS << 1;
       
       protected static const NPC_SPEECH_NONE:uint = 0;
       
@@ -994,7 +996,7 @@ package tibia.container.bodyContainerViewWigdetClasses
          this.m_UIOpenStoreInbox.visible = _loc3_;
          this.m_UIOpenStoreInbox.setActualSize(this.m_UIOpenStoreInbox.getExplicitOrMeasuredWidth(),this.m_UIOpenStoreInbox.getExplicitOrMeasuredHeight());
          this.m_UIOpenStoreConfirmText.width = 79;
-         var _loc5_:Boolean = this.m_Player != null && !this.m_Player.hasBlessing(BLESSING_NONE);
+         var _loc5_:Boolean = this.m_Player != null && this.m_Player.hasBlessing(BLESSING_ADVENTURER);
          this.m_UIBlessings.visible = _loc3_;
          this.m_UIBlessings.enabled = _loc5_;
          this.m_UIBlessings.toolTip = this.getBlessingTooltip();

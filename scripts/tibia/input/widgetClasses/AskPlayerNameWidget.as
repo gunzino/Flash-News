@@ -1,14 +1,14 @@
 package tibia.input.widgetClasses
 {
-   import flash.events.Event;
-   import flash.events.KeyboardEvent;
-   import flash.events.TextEvent;
+   import tibia.game.PopUpBase;
    import mx.controls.Label;
    import mx.controls.TextInput;
-   import shared.utility.StringHelper;
    import tibia.creatures.Creature;
-   import tibia.game.PopUpBase;
+   import flash.events.Event;
+   import flash.events.KeyboardEvent;
    import tibia.input.PreventWhitespaceInput;
+   import flash.events.TextEvent;
+   import shared.utility.StringHelper;
    
    public class AskPlayerNameWidget extends PopUpBase
    {

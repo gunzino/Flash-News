@@ -1,14 +1,14 @@
 package tibia.appearances.widgetClasses
 {
    import flash.display.BitmapData;
+   import flash.geom.Rectangle;
+   import tibia.appearances.Marks;
+   import shared.utility.Colour;
+   import mx.core.FlexShape;
    import flash.display.Graphics;
    import flash.display.LineScaleMode;
-   import flash.geom.Point;
-   import flash.geom.Rectangle;
    import flash.utils.Dictionary;
-   import mx.core.FlexShape;
-   import shared.utility.Colour;
-   import tibia.appearances.Marks;
+   import flash.geom.Point;
    
    public class MarksView
    {

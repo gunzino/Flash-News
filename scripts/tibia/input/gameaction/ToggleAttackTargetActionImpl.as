@@ -1,7 +1,7 @@
 package tibia.input.gameaction
 {
-   import tibia.creatures.Creature;
    import tibia.input.IActionImpl;
+   import tibia.creatures.Creature;
    
    public class ToggleAttackTargetActionImpl implements IActionImpl
    {

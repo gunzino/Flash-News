@@ -1,21 +1,21 @@
 package tibia.help
 {
-   import flash.display.Bitmap;
+   import mx.core.UIComponent;
    import flash.display.BitmapData;
+   import shared.utility.Colour;
+   import flash.display.Bitmap;
+   import mx.effects.Move;
+   import flash.geom.Rectangle;
+   import flash.geom.Point;
+   import mx.effects.Sequence;
+   import mx.effects.Pause;
+   import mx.effects.Fade;
+   import mx.events.EffectEvent;
    import flash.events.Event;
    import flash.events.EventDispatcher;
-   import flash.filters.BitmapFilterQuality;
-   import flash.filters.GlowFilter;
    import flash.geom.Matrix;
-   import flash.geom.Point;
-   import flash.geom.Rectangle;
-   import mx.core.UIComponent;
-   import mx.effects.Fade;
-   import mx.effects.Move;
-   import mx.effects.Pause;
-   import mx.effects.Sequence;
-   import mx.events.EffectEvent;
-   import shared.utility.Colour;
+   import flash.filters.GlowFilter;
+   import flash.filters.BitmapFilterQuality;
    
    public class ArrowHint extends UIComponent
    {

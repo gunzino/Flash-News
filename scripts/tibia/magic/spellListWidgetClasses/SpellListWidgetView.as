@@ -1,43 +1,43 @@
 package tibia.magic.spellListWidgetClasses
 {
-   import flash.events.MouseEvent;
-   import mx.collections.ArrayCollection;
-   import mx.collections.Sort;
-   import mx.containers.Box;
-   import mx.containers.Form;
-   import mx.containers.FormHeading;
-   import mx.containers.FormItem;
-   import mx.containers.HBox;
-   import mx.containers.VBox;
-   import mx.containers.ViewStack;
-   import mx.controls.Button;
-   import mx.controls.HRule;
-   import mx.controls.Label;
-   import mx.controls.RadioButton;
-   import mx.controls.RadioButtonGroup;
-   import mx.controls.Spacer;
-   import mx.controls.TabBar;
+   import tibia.sidebar.sideBarWidgetClasses.WidgetView;
    import mx.controls.listClasses.ListBase;
    import mx.core.ClassFactory;
-   import mx.core.EventPriority;
-   import mx.core.ScrollPolicy;
-   import mx.core.mx_internal;
-   import mx.events.IndexChangedEvent;
-   import mx.events.ItemClickEvent;
-   import mx.events.ListEvent;
-   import mx.events.PropertyChangeEvent;
-   import shared.controls.CustomButton;
-   import shared.controls.CustomLabel;
-   import shared.controls.CustomList;
-   import shared.controls.CustomTileList;
-   import shared.controls.SimpleTabBar;
-   import shared.utility.replaceChild;
-   import tibia.creatures.Player;
-   import tibia.magic.Spell;
    import tibia.magic.SpellListWidget;
-   import tibia.magic.SpellStorage;
-   import tibia.sidebar.sideBarWidgetClasses.WidgetView;
+   import shared.controls.CustomList;
+   import mx.core.ScrollPolicy;
+   import shared.controls.CustomTileList;
+   import mx.events.ListEvent;
+   import flash.events.MouseEvent;
+   import shared.utility.replaceChild;
+   import mx.core.EventPriority;
+   import tibia.creatures.Player;
+   import mx.containers.Box;
+   import mx.controls.Spacer;
+   import mx.controls.HRule;
+   import mx.containers.Form;
+   import mx.containers.VBox;
+   import mx.containers.FormHeading;
+   import mx.containers.HBox;
+   import shared.controls.CustomButton;
+   import mx.controls.RadioButtonGroup;
+   import mx.events.ItemClickEvent;
+   import mx.containers.ViewStack;
+   import mx.events.IndexChangedEvent;
+   import shared.controls.SimpleTabBar;
    import tibia.§sidebar:ns_sidebar_internal§.widgetInstance;
+   import tibia.magic.Spell;
+   import mx.controls.Label;
+   import mx.controls.Button;
+   import mx.controls.TabBar;
+   import shared.controls.CustomLabel;
+   import mx.containers.FormItem;
+   import mx.core.mx_internal;
+   import mx.events.PropertyChangeEvent;
+   import mx.collections.ArrayCollection;
+   import mx.controls.RadioButton;
+   import mx.collections.Sort;
+   import tibia.magic.SpellStorage;
    
    public class SpellListWidgetView extends WidgetView
    {
@@ -78,13 +78,11 @@ package tibia.magic.spellListWidgetClasses
       
       protected static const SKILL_EXPERIENCE:int = 0;
       
-      protected static const TYPE_SUMMON_OTHERS:int = 4;
+      protected static const TYPE_NPC:int = 2;
       
-      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_EMBRACE_OF_TIBIA << 1;
+      protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_SPARK_OF_PHOENIX << 1;
       
       protected static const SKILL_STAMINA:int = 17;
-      
-      protected static const TYPE_NPC:int = 2;
       
       protected static const STATE_NONE:int = -1;
       
@@ -93,6 +91,8 @@ package tibia.magic.spellListWidgetClasses
       protected static const SKILL_FIGHTSHIELD:int = 8;
       
       protected static const SKILL_MANA_LEECH_CHANCE:int = 23;
+      
+      protected static const GROUP_POWERSTRIKES:int = 4;
       
       protected static const SKILL_FIGHTDISTANCE:int = 9;
       
@@ -107,8 +107,6 @@ package tibia.magic.spellListWidgetClasses
       protected static const SKILL_MAGLEVEL:int = 2;
       
       protected static const SKILL_FISHING:int = 14;
-      
-      protected static const GROUP_POWERSTRIKES:int = 4;
       
       protected static const SKILL_HITPOINTS_PERCENT:int = 3;
       
@@ -132,13 +130,15 @@ package tibia.magic.spellListWidgetClasses
       
       protected static const PROFESSION_NONE:int = 0;
       
+      protected static const BLESSING_BLOOD_OF_THE_MOUNTAIN:int = BLESSING_HEART_OF_THE_MOUNTAIN << 1;
+      
       protected static const MAX_NAME_LENGTH:int = 29;
       
       protected static const PARTY_LEADER:int = 1;
       
-      protected static const STATE_PZ_ENTERED:int = 14;
-      
       protected static const SKILL_CARRYSTRENGTH:int = 7;
+      
+      protected static const STATE_PZ_ENTERED:int = 14;
       
       protected static const PK_ATTACKER:int = 1;
       
@@ -149,6 +149,8 @@ package tibia.magic.spellListWidgetClasses
       protected static const GUILD_WAR_NEUTRAL:int = 3;
       
       protected static const STATE_DROWNING:int = 8;
+      
+      protected static const BLESSING_HEART_OF_THE_MOUNTAIN:int = BLESSING_EMBRACE_OF_TIBIA << 1;
       
       protected static const SKILL_LIFE_LEECH_AMOUNT:int = 22;
       
@@ -184,8 +186,6 @@ package tibia.magic.spellListWidgetClasses
       
       protected static const PROFESSION_MASK_NONE:int = 1 << PROFESSION_NONE;
       
-      protected static const TYPE_SUMMON_OWN:int = 3;
-      
       protected static const PROFESSION_MASK_SORCERER:int = 1 << PROFESSION_SORCERER;
       
       protected static const PROFESSION_KNIGHT:int = 1;
@@ -194,7 +194,7 @@ package tibia.magic.spellListWidgetClasses
       
       protected static const PARTY_LEADER_SEXP_INACTIVE_GUILTY:int = 8;
       
-      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_FIRE_OF_SUNS << 1;
+      protected static const BLESSING_WISDOM_OF_SOLITUDE:int = BLESSING_TWIST_OF_FATE << 1;
       
       protected static const PROFESSION_PALADIN:int = 2;
       
@@ -210,7 +210,7 @@ package tibia.magic.spellListWidgetClasses
       
       protected static const STATE_FAST:int = 6;
       
-      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_SPARK_OF_PHOENIX << 1;
+      protected static const BLESSING_TWIST_OF_FATE:int = BLESSING_ADVENTURER << 1;
       
       protected static const SKILL_MANA_LEECH_AMOUNT:int = 24;
       
@@ -274,7 +274,9 @@ package tibia.magic.spellListWidgetClasses
       
       protected static const NPC_SPEECH_NORMAL:uint = 1;
       
-      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_ADVENTURER << 1;
+      protected static const TYPE_PLAYERSUMMON:int = 3;
+      
+      protected static const BLESSING_SPIRITUAL_SHIELDING:int = BLESSING_FIRE_OF_SUNS << 1;
       
       protected static const NPC_SPEECH_NONE:uint = 0;
       

@@ -1,12 +1,12 @@
 package tibia.worldmap.widgetClasses
 {
-   import flash.display.BitmapData;
    import flash.geom.Point;
+   import flash.display.BitmapData;
    import flash.geom.Rectangle;
-   import tibia.appearances.AppearanceInstance;
+   import tibia.creatures.Creature;
    import tibia.appearances.AppearanceType;
    import tibia.appearances.FrameGroup;
-   import tibia.creatures.Creature;
+   import tibia.appearances.AppearanceInstance;
    
    public class ObjectCursor extends TileCursor
    {

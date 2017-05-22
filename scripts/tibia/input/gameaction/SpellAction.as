@@ -1,13 +1,13 @@
 package tibia.input.gameaction
 {
-   import mx.resources.IResourceManager;
-   import mx.resources.ResourceManager;
-   import tibia.creatures.Player;
-   import tibia.game.Delay;
    import tibia.input.IAction;
-   import tibia.magic.Spell;
    import tibia.magic.SpellStorage;
+   import tibia.game.Delay;
+   import tibia.creatures.Player;
    import tibia.network.IServerConnection;
+   import tibia.magic.Spell;
+   import mx.resources.ResourceManager;
+   import mx.resources.IResourceManager;
    
    public class SpellAction implements IAction
    {

@@ -1,13 +1,13 @@
 package tibia.game.contextMenuClasses
 {
+   import mx.core.UIComponent;
    import flash.display.DisplayObject;
-   import flash.events.ContextMenuEvent;
+   import shared.controls.ShapeWrapper;
    import flash.events.Event;
    import flash.events.MouseEvent;
    import mx.core.EdgeMetrics;
-   import mx.core.UIComponent;
    import mx.core.UITextField;
-   import shared.controls.ShapeWrapper;
+   import flash.events.ContextMenuEvent;
    
    public class TextItem extends UIComponent implements IContextMenuItem
    {

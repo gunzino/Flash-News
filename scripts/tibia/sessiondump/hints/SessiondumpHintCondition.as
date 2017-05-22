@@ -1,21 +1,21 @@
 package tibia.sessiondump.hints
 {
-   import tibia.actionbar.widgetClasses.ActionBarWidget;
-   import tibia.appearances.AppearanceType;
-   import tibia.creatures.Creature;
-   import tibia.creatures.CreatureStorage;
-   import tibia.creatures.battlelistWidgetClasses.BattlelistWidgetView;
-   import tibia.help.GUIRectangle;
-   import tibia.sessiondump.controller.SessiondumpHintActionsController;
-   import tibia.sessiondump.controller.SessiondumpMouseShield;
-   import tibia.sessiondump.hints.condition.HintConditionAttack;
-   import tibia.sessiondump.hints.condition.HintConditionAutowalk;
    import tibia.sessiondump.hints.condition.HintConditionBase;
-   import tibia.sessiondump.hints.condition.HintConditionGreet;
+   import tibia.worldmap.WorldMapStorage;
+   import tibia.sessiondump.controller.SessiondumpHintActionsController;
+   import tibia.sessiondump.hints.condition.HintConditionAutowalk;
    import tibia.sessiondump.hints.condition.HintConditionMove;
    import tibia.sessiondump.hints.condition.HintConditionTalk;
+   import tibia.sessiondump.hints.condition.HintConditionAttack;
+   import tibia.sessiondump.hints.condition.HintConditionGreet;
    import tibia.sessiondump.hints.condition.HintConditionUse;
-   import tibia.worldmap.WorldMapStorage;
+   import tibia.appearances.AppearanceType;
+   import tibia.creatures.CreatureStorage;
+   import tibia.creatures.Creature;
+   import tibia.help.GUIRectangle;
+   import tibia.sessiondump.controller.SessiondumpMouseShield;
+   import tibia.creatures.battlelistWidgetClasses.BattlelistWidgetView;
+   import tibia.actionbar.widgetClasses.ActionBarWidget;
    
    public class SessiondumpHintCondition extends SessiondumpHintBase
    {

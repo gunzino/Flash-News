@@ -1,20 +1,20 @@
 package tibia.trade.safeTradeWidgetClasses
 {
-   import flash.events.MouseEvent;
-   import mx.collections.IList;
-   import mx.containers.HBox;
-   import mx.containers.ViewStack;
+   import tibia.sidebar.sideBarWidgetClasses.WidgetView;
    import mx.controls.Button;
-   import mx.controls.Label;
-   import mx.controls.Text;
+   import mx.collections.IList;
    import mx.core.Container;
+   import tibia.container.containerViewWidgetClasses.ContainerSlot;
+   import flash.events.MouseEvent;
+   import tibia.appearances.AppearanceInstance;
+   import mx.containers.HBox;
+   import mx.controls.Text;
+   import shared.controls.CustomLabel;
    import mx.core.ScrollPolicy;
    import shared.controls.CustomButton;
-   import shared.controls.CustomLabel;
-   import tibia.appearances.AppearanceInstance;
-   import tibia.container.containerViewWidgetClasses.ContainerSlot;
+   import mx.containers.ViewStack;
    import tibia.network.Communication;
-   import tibia.sidebar.sideBarWidgetClasses.WidgetView;
+   import mx.controls.Label;
    import tibia.§sidebar:ns_sidebar_internal§.widgetInstance;
    
    public class SafeTradeWidgetView extends WidgetView

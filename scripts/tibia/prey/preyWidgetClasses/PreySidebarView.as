@@ -1,13 +1,13 @@
 package tibia.prey.preyWidgetClasses
 {
+   import tibia.sidebar.sideBarWidgetClasses.WidgetView;
    import flash.events.MouseEvent;
-   import mx.containers.VBox;
-   import mx.core.ScrollPolicy;
+   import tibia.prey.PreyWidget;
    import mx.events.PropertyChangeEvent;
    import tibia.prey.PreyData;
    import tibia.prey.PreyManager;
-   import tibia.prey.PreyWidget;
-   import tibia.sidebar.sideBarWidgetClasses.WidgetView;
+   import mx.containers.VBox;
+   import mx.core.ScrollPolicy;
    
    public class PreySidebarView extends WidgetView
    {

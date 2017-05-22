@@ -1,7 +1,7 @@
 package tibia.input.gameaction
 {
-   import shared.utility.Vector3D;
    import tibia.input.IActionImpl;
+   import shared.utility.Vector3D;
    
    public class AutowalkActionImpl implements IActionImpl
    {

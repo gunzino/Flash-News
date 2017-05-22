@@ -1,14 +1,14 @@
 package tibia.worldmap
 {
-   import flash.display.BitmapData;
    import flash.geom.Rectangle;
-   import shared.utility.Colour;
-   import tibia.appearances.AppearanceInstance;
-   import tibia.appearances.AppearanceStorage;
-   import tibia.appearances.AppearanceType;
-   import tibia.appearances.FrameGroup;
-   import tibia.appearances.ObjectInstance;
+   import flash.display.BitmapData;
    import tibia.§worldmap:ns_map_internal§.s_CacheBitmap;
+   import tibia.appearances.ObjectInstance;
+   import tibia.appearances.AppearanceType;
+   import tibia.appearances.AppearanceInstance;
+   import tibia.appearances.FrameGroup;
+   import tibia.appearances.AppearanceStorage;
+   import shared.utility.Colour;
    
    public class Field
    {

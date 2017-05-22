@@ -1,19 +1,19 @@
 package tibia.sidebar
 {
+   import mx.core.UIComponent;
+   import mx.styles.CSSStyleDeclaration;
+   import mx.styles.StyleManager;
    import flash.display.DisplayObject;
-   import flash.events.MouseEvent;
    import mx.controls.Button;
+   import flash.events.MouseEvent;
+   import shared.controls.CustomButton;
+   import mx.events.PropertyChangeEvent;
+   import mx.core.IFlexDisplayObject;
+   import mx.styles.ISimpleStyleClient;
+   import mx.core.IInvalidating;
+   import tibia.options.OptionsStorage;
    import mx.core.EdgeMetrics;
    import mx.core.IBorder;
-   import mx.core.IFlexDisplayObject;
-   import mx.core.IInvalidating;
-   import mx.core.UIComponent;
-   import mx.events.PropertyChangeEvent;
-   import mx.styles.CSSStyleDeclaration;
-   import mx.styles.ISimpleStyleClient;
-   import mx.styles.StyleManager;
-   import shared.controls.CustomButton;
-   import tibia.options.OptionsStorage;
    
    public class ToggleBar extends UIComponent
    {
@@ -36,7 +36,7 @@ package tibia.sidebar
       
       private var m_UIConstructed:Boolean = false;
       
-      protected var m_SideBarSet:SideBarSet = null;
+      protected var m_SideBarSet:tibia.sidebar.SideBarSet = null;
       
       protected var m_UIButtons:Array = null;
       
@@ -77,7 +77,7 @@ package tibia.sidebar
          }
       }
       
-      function get sideBarSet() : SideBarSet
+      function get sideBarSet() : tibia.sidebar.SideBarSet
       {
          return this.m_SideBarSet;
       }
@@ -132,7 +132,7 @@ package tibia.sidebar
          }
       }
       
-      function set sideBarSet(param1:SideBarSet) : void
+      function set sideBarSet(param1:tibia.sidebar.SideBarSet) : void
       {
          if(this.m_SideBarSet != param1)
          {
@@ -324,7 +324,7 @@ package tibia.sidebar
             while(_loc2_ >= 0)
             {
                _loc3_ = int(param1[_loc2_]);
-               if(!SideBarSet.s_CheckLocation(_loc3_))
+               if(!tibia.sidebar.SideBarSet.s_CheckLocation(_loc3_))
                {
                   throw new ArgumentError("ToggleBar.set location: Invalid location ID.");
                }
@@ -343,7 +343,7 @@ package tibia.sidebar
       {
          if(this.m_Options != null)
          {
-            this.sideBarSet = this.m_Options.getSideBarSet(SideBarSet.DEFAULT_SET);
+            this.sideBarSet = this.m_Options.getSideBarSet(tibia.sidebar.SideBarSet.DEFAULT_SET);
          }
          else
          {

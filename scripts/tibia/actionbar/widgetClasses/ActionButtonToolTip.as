@@ -1,22 +1,22 @@
 package tibia.actionbar.widgetClasses
 {
-   import mx.containers.Form;
-   import mx.containers.FormItem;
    import mx.containers.VBox;
-   import mx.controls.Label;
-   import mx.controls.Text;
-   import mx.core.ClassFactory;
-   import mx.core.IChildList;
-   import mx.core.IRawChildrenContainer;
    import mx.core.IToolTip;
-   import mx.core.ScrollPolicy;
+   import mx.containers.Form;
    import tibia.actionbar.ActionBar;
-   import tibia.container.ContainerStorage;
+   import mx.core.IChildList;
+   import mx.controls.Label;
+   import mx.core.IRawChildrenContainer;
    import tibia.input.IAction;
+   import tibia.container.ContainerStorage;
+   import tibia.magic.Spell;
+   import tibia.input.gameaction.UseAction;
    import tibia.input.gameaction.EquipAction;
    import tibia.input.gameaction.SpellAction;
-   import tibia.input.gameaction.UseAction;
-   import tibia.magic.Spell;
+   import mx.core.ClassFactory;
+   import mx.core.ScrollPolicy;
+   import mx.controls.Text;
+   import mx.containers.FormItem;
    
    public class ActionButtonToolTip extends VBox implements IToolTip
    {
@@ -40,7 +40,7 @@ package tibia.actionbar.widgetClasses
       protected static const GROUP_NONE:int = 0;
        
       
-      private var m_ActionButton:IActionButton = null;
+      private var m_ActionButton:tibia.actionbar.widgetClasses.IActionButton = null;
       
       private var m_UIForm:Form = null;
       
@@ -57,7 +57,7 @@ package tibia.actionbar.widgetClasses
          super();
       }
       
-      public function get actionButton() : IActionButton
+      public function get actionButton() : tibia.actionbar.widgetClasses.IActionButton
       {
          return this.m_ActionButton;
       }
@@ -90,7 +90,7 @@ package tibia.actionbar.widgetClasses
          }
       }
       
-      public function set actionButton(param1:IActionButton) : void
+      public function set actionButton(param1:tibia.actionbar.widgetClasses.IActionButton) : void
       {
          if(this.m_ActionButton != param1)
          {

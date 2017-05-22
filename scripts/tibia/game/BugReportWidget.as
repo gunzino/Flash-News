@@ -1,14 +1,14 @@
 package tibia.game
 {
+   import tibia.network.Communication;
    import flash.events.Event;
-   import flash.events.KeyboardEvent;
-   import flash.events.TextEvent;
+   import shared.utility.StringHelper;
    import mx.controls.ComboBox;
    import mx.controls.Text;
    import mx.controls.TextArea;
-   import shared.utility.StringHelper;
+   import flash.events.KeyboardEvent;
    import tibia.input.PreventWhitespaceInput;
-   import tibia.network.Communication;
+   import flash.events.TextEvent;
    
    public class BugReportWidget extends PopUpBase
    {
