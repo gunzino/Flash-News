@@ -1,11 +1,11 @@
 package mx.managers.layoutClasses
 {
-   import flash.display.DisplayObject;
-   import flash.display.DisplayObjectContainer;
-   import mx.core.IChildList;
-   import mx.core.IRawChildrenContainer;
    import mx.core.mx_internal;
    import mx.managers.ILayoutManagerClient;
+   import flash.display.DisplayObject;
+   import mx.core.IChildList;
+   import mx.core.IRawChildrenContainer;
+   import flash.display.DisplayObjectContainer;
    
    use namespace mx_internal;
    

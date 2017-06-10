@@ -1,10 +1,10 @@
 package mx.effects.effectClasses
 {
-   import flash.events.Event;
-   import flash.filters.GlowFilter;
-   import mx.core.Application;
    import mx.core.mx_internal;
+   import flash.events.Event;
    import mx.styles.StyleManager;
+   import mx.core.Application;
+   import flash.filters.GlowFilter;
    
    use namespace mx_internal;
    

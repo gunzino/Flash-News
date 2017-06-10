@@ -1,22 +1,22 @@
 package mx.controls
 {
-   import flash.display.DisplayObject;
-   import flash.events.Event;
-   import flash.geom.Rectangle;
-   import flash.text.StyleSheet;
-   import flash.text.TextLineMetrics;
-   import mx.controls.listClasses.BaseListData;
+   import mx.core.UIComponent;
+   import mx.core.IDataRenderer;
    import mx.controls.listClasses.IDropInListItemRenderer;
    import mx.controls.listClasses.IListItemRenderer;
-   import mx.core.FlexVersion;
-   import mx.core.IDataRenderer;
-   import mx.core.IFlexModuleFactory;
    import mx.core.IFontContextComponent;
-   import mx.core.IUITextField;
-   import mx.core.UIComponent;
-   import mx.core.UITextField;
    import mx.core.mx_internal;
+   import flash.events.Event;
+   import flash.text.TextLineMetrics;
+   import mx.core.FlexVersion;
+   import mx.core.IUITextField;
+   import flash.geom.Rectangle;
+   import mx.core.UITextField;
    import mx.events.FlexEvent;
+   import flash.text.StyleSheet;
+   import mx.core.IFlexModuleFactory;
+   import flash.display.DisplayObject;
+   import mx.controls.listClasses.BaseListData;
    
    use namespace mx_internal;
    

@@ -7,13 +7,13 @@ package mx.collections
    public class CursorBookmark
    {
       
-      private static var _first:CursorBookmark;
+      private static var _first:mx.collections.CursorBookmark;
       
-      private static var _last:CursorBookmark;
+      private static var _last:mx.collections.CursorBookmark;
       
       mx_internal static const VERSION:String = "3.6.0.21751";
       
-      private static var _current:CursorBookmark;
+      private static var _current:mx.collections.CursorBookmark;
        
       
       private var _value:Object;
@@ -24,29 +24,29 @@ package mx.collections
          _value = param1;
       }
       
-      public static function get LAST() : CursorBookmark
+      public static function get LAST() : mx.collections.CursorBookmark
       {
          if(!_last)
          {
-            _last = new CursorBookmark("${L}");
+            _last = new mx.collections.CursorBookmark("${L}");
          }
          return _last;
       }
       
-      public static function get FIRST() : CursorBookmark
+      public static function get FIRST() : mx.collections.CursorBookmark
       {
          if(!_first)
          {
-            _first = new CursorBookmark("${F}");
+            _first = new mx.collections.CursorBookmark("${F}");
          }
          return _first;
       }
       
-      public static function get CURRENT() : CursorBookmark
+      public static function get CURRENT() : mx.collections.CursorBookmark
       {
          if(!_current)
          {
-            _current = new CursorBookmark("${C}");
+            _current = new mx.collections.CursorBookmark("${C}");
          }
          return _current;
       }

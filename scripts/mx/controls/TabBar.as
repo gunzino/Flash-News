@@ -1,11 +1,11 @@
 package mx.controls
 {
-   import flash.display.DisplayObject;
-   import flash.events.MouseEvent;
-   import mx.controls.tabBarClasses.Tab;
-   import mx.core.ClassFactory;
-   import mx.core.IFlexDisplayObject;
    import mx.core.mx_internal;
+   import flash.events.MouseEvent;
+   import flash.display.DisplayObject;
+   import mx.core.IFlexDisplayObject;
+   import mx.core.ClassFactory;
+   import mx.controls.tabBarClasses.Tab;
    
    use namespace mx_internal;
    

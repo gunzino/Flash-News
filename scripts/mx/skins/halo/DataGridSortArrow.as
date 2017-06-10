@@ -1,8 +1,8 @@
 package mx.skins.halo
 {
-   import flash.display.Graphics;
-   import mx.core.mx_internal;
    import mx.skins.ProgrammaticSkin;
+   import mx.core.mx_internal;
+   import flash.display.Graphics;
    
    use namespace mx_internal;
    

@@ -1,8 +1,8 @@
 package mx.core
 {
    import flash.display.Bitmap;
-   import flash.display.BitmapData;
    import mx.utils.NameUtil;
+   import flash.display.BitmapData;
    
    use namespace mx_internal;
    

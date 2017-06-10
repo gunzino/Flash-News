@@ -1,8 +1,8 @@
 package mx.graphics.codec
 {
-   import flash.display.BitmapData;
-   import flash.utils.ByteArray;
    import mx.core.mx_internal;
+   import flash.utils.ByteArray;
+   import flash.display.BitmapData;
    
    use namespace mx_internal;
    

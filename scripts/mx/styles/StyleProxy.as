@@ -1,21 +1,21 @@
 package mx.styles
 {
-   import mx.core.FlexVersion;
    import mx.core.mx_internal;
+   import mx.core.FlexVersion;
    
    use namespace mx_internal;
    
-   public class StyleProxy implements IStyleClient
+   public class StyleProxy implements mx.styles.IStyleClient
    {
       
       mx_internal static const VERSION:String = "3.6.0.21751";
        
       
-      private var _source:IStyleClient;
+      private var _source:mx.styles.IStyleClient;
       
       private var _filterMap:Object;
       
-      public function StyleProxy(param1:IStyleClient, param2:Object)
+      public function StyleProxy(param1:mx.styles.IStyleClient, param2:Object)
       {
          super();
          this.filterMap = param2;
@@ -51,14 +51,14 @@ package mx.styles
       {
       }
       
-      public function get source() : IStyleClient
+      public function get source() : mx.styles.IStyleClient
       {
          return _source;
       }
       
       public function get styleName() : Object
       {
-         if(_source.styleName is IStyleClient)
+         if(_source.styleName is mx.styles.IStyleClient)
          {
             return new StyleProxy(IStyleClient(_source.styleName),filterMap);
          }
@@ -119,7 +119,7 @@ package mx.styles
          return _source.getStyle(param1);
       }
       
-      public function set source(param1:IStyleClient) : void
+      public function set source(param1:mx.styles.IStyleClient) : void
       {
          _source = param1;
       }

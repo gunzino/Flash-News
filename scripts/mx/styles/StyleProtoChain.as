@@ -1,9 +1,9 @@
 package mx.styles
 {
-   import flash.display.DisplayObject;
-   import mx.core.IUITextField;
-   import mx.core.UIComponent;
    import mx.core.mx_internal;
+   import flash.display.DisplayObject;
+   import mx.core.UIComponent;
+   import mx.core.IUITextField;
    
    use namespace mx_internal;
    

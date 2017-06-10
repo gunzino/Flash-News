@@ -1,8 +1,8 @@
 package mx.controls.dataGridClasses
 {
    import mx.controls.listClasses.BaseListData;
-   import mx.core.IUIComponent;
    import mx.core.mx_internal;
+   import mx.core.IUIComponent;
    
    use namespace mx_internal;
    

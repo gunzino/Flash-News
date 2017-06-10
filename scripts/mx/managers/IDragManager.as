@@ -1,9 +1,9 @@
 package mx.managers
 {
-   import flash.events.MouseEvent;
-   import mx.core.DragSource;
-   import mx.core.IFlexDisplayObject;
    import mx.core.IUIComponent;
+   import mx.core.DragSource;
+   import flash.events.MouseEvent;
+   import mx.core.IFlexDisplayObject;
    
    public interface IDragManager
    {

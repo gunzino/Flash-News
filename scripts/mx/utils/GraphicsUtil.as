@@ -1,7 +1,7 @@
 package mx.utils
 {
-   import flash.display.Graphics;
    import mx.core.mx_internal;
+   import flash.display.Graphics;
    
    use namespace mx_internal;
    

@@ -1,10 +1,10 @@
 package mx.managers
 {
-   import flash.display.DisplayObject;
-   import flash.display.InteractiveObject;
    import flash.display.Sprite;
-   import flash.events.IEventDispatcher;
    import mx.core.IButton;
+   import flash.display.DisplayObject;
+   import flash.events.IEventDispatcher;
+   import flash.display.InteractiveObject;
    
    public interface IFocusManager
    {

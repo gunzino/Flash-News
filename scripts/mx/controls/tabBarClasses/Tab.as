@@ -1,13 +1,13 @@
 package mx.controls.tabBarClasses
 {
-   import flash.display.DisplayObject;
-   import flash.text.TextLineMetrics;
    import mx.controls.Button;
-   import mx.core.IFlexDisplayObject;
+   import mx.core.mx_internal;
+   import flash.display.DisplayObject;
+   import mx.styles.ISimpleStyleClient;
    import mx.core.IProgrammaticSkin;
    import mx.core.IStateClient;
-   import mx.core.mx_internal;
-   import mx.styles.ISimpleStyleClient;
+   import mx.core.IFlexDisplayObject;
+   import flash.text.TextLineMetrics;
    
    use namespace mx_internal;
    

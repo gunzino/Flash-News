@@ -1,7 +1,7 @@
 package shared.skins
 {
-   import mx.core.UIComponent;
    import mx.skins.ProgrammaticSkin;
+   import mx.core.UIComponent;
    
    public class VectorDataGridHeaderSeparatorSkin extends ProgrammaticSkin
    {

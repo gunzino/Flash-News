@@ -1,13 +1,13 @@
 package mx.managers
 {
-   import flash.display.Stage;
-   import flash.events.Event;
    import flash.events.EventDispatcher;
-   import mx.core.ApplicationGlobals;
-   import mx.core.UIComponent;
    import mx.core.mx_internal;
+   import flash.display.Stage;
    import mx.events.FlexEvent;
    import mx.managers.layoutClasses.PriorityQueue;
+   import mx.core.ApplicationGlobals;
+   import mx.core.UIComponent;
+   import flash.events.Event;
    
    use namespace mx_internal;
    
@@ -16,7 +16,7 @@ package mx.managers
       
       mx_internal static const VERSION:String = "3.6.0.21751";
       
-      private static var instance:LayoutManager;
+      private static var instance:mx.managers.LayoutManager;
        
       
       private var invalidateClientPropertiesFlag:Boolean = false;
@@ -56,11 +56,11 @@ package mx.managers
          super();
       }
       
-      public static function getInstance() : LayoutManager
+      public static function getInstance() : mx.managers.LayoutManager
       {
          if(!instance)
          {
-            instance = new LayoutManager();
+            instance = new mx.managers.LayoutManager();
          }
          return instance;
       }

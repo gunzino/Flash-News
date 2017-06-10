@@ -1,16 +1,16 @@
 package shared.controls
 {
-   import flash.events.MouseEvent;
-   import mx.containers.Box;
-   import mx.containers.HBox;
    import mx.containers.VBox;
-   import mx.controls.Button;
-   import mx.controls.Label;
    import mx.controls.Text;
-   import mx.core.Container;
-   import mx.core.EventPriority;
-   import mx.core.ScrollPolicy;
+   import mx.controls.Button;
+   import flash.events.MouseEvent;
+   import mx.controls.Label;
+   import mx.containers.Box;
    import mx.events.CloseEvent;
+   import mx.containers.HBox;
+   import mx.core.Container;
+   import mx.core.ScrollPolicy;
+   import mx.core.EventPriority;
    
    public class EmbeddedDialog extends VBox
    {

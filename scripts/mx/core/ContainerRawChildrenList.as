@@ -11,9 +11,9 @@ package mx.core
       mx_internal static const VERSION:String = "3.6.0.21751";
        
       
-      private var owner:Container;
+      private var owner:mx.core.Container;
       
-      public function ContainerRawChildrenList(param1:Container)
+      public function ContainerRawChildrenList(param1:mx.core.Container)
       {
          super();
          this.owner = param1;

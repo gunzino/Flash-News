@@ -1,7 +1,7 @@
 package mx.containers.gridClasses
 {
-   import mx.core.UIComponent;
    import mx.core.mx_internal;
+   import mx.core.UIComponent;
    
    use namespace mx_internal;
    

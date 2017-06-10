@@ -1,22 +1,22 @@
 package mx.controls.sliderClasses
 {
-   import flash.display.DisplayObject;
-   import flash.display.Graphics;
-   import flash.events.FocusEvent;
-   import flash.events.KeyboardEvent;
-   import flash.events.MouseEvent;
-   import flash.geom.Point;
-   import mx.core.FlexVersion;
-   import mx.core.IFlexDisplayObject;
    import mx.core.UIComponent;
    import mx.core.mx_internal;
-   import mx.effects.Tween;
-   import mx.events.FlexEvent;
-   import mx.events.SliderEvent;
-   import mx.events.SliderEventClickTarget;
-   import mx.formatters.NumberFormatter;
+   import flash.display.DisplayObject;
    import mx.styles.ISimpleStyleClient;
+   import flash.display.Graphics;
+   import flash.events.MouseEvent;
+   import flash.geom.Point;
+   import mx.formatters.NumberFormatter;
+   import mx.core.IFlexDisplayObject;
+   import mx.events.SliderEvent;
    import mx.styles.StyleProxy;
+   import flash.events.FocusEvent;
+   import mx.core.FlexVersion;
+   import mx.events.SliderEventClickTarget;
+   import mx.events.FlexEvent;
+   import mx.effects.Tween;
+   import flash.events.KeyboardEvent;
    
    use namespace mx_internal;
    
@@ -76,7 +76,7 @@ package mx.controls.sliderClasses
       
       private var snapIntervalPrecision:int = -1;
       
-      mx_internal var dataTip:SliderDataTip;
+      mx_internal var dataTip:mx.controls.sliderClasses.SliderDataTip;
       
       private var _snapInterval:Number = 0;
       
@@ -116,7 +116,7 @@ package mx.controls.sliderClasses
       {
          _labels = [];
          _thumbClass = SliderThumb;
-         _sliderDataTipClass = SliderDataTip;
+         _sliderDataTipClass = mx.controls.sliderClasses.SliderDataTip;
          _tickValues = [];
          _values = [0,0];
          super();

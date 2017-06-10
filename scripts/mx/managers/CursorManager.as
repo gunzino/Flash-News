@@ -1,20 +1,20 @@
 package mx.managers
 {
-   import mx.core.Singleton;
    import mx.core.mx_internal;
+   import mx.core.Singleton;
    
    use namespace mx_internal;
    
    public class CursorManager
    {
       
-      private static var _impl:ICursorManager;
+      private static var _impl:mx.managers.ICursorManager;
       
       mx_internal static const VERSION:String = "3.6.0.21751";
       
       public static const NO_CURSOR:int = 0;
       
-      private static var implClassDependency:CursorManagerImpl;
+      private static var implClassDependency:mx.managers.CursorManagerImpl;
        
       
       public function CursorManager()
@@ -37,7 +37,7 @@ package mx.managers
          return impl.currentCursorID;
       }
       
-      public static function getInstance() : ICursorManager
+      public static function getInstance() : mx.managers.ICursorManager
       {
          return impl;
       }
@@ -62,7 +62,7 @@ package mx.managers
          impl.unRegisterToUseBusyCursor(param1);
       }
       
-      private static function get impl() : ICursorManager
+      private static function get impl() : mx.managers.ICursorManager
       {
          if(!_impl)
          {

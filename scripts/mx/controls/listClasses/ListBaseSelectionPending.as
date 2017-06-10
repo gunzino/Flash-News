@@ -1,7 +1,7 @@
 package mx.controls.listClasses
 {
-   import mx.collections.CursorBookmark;
    import mx.core.mx_internal;
+   import mx.collections.CursorBookmark;
    
    use namespace mx_internal;
    

@@ -1,7 +1,7 @@
 package mx.controls.listClasses
 {
-   import mx.core.IUIComponent;
    import mx.core.mx_internal;
+   import mx.core.IUIComponent;
    
    use namespace mx_internal;
    

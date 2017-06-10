@@ -1,10 +1,10 @@
 package mx.events
 {
-   import flash.events.Event;
    import flash.events.MouseEvent;
-   import mx.core.DragSource;
-   import mx.core.IUIComponent;
    import mx.core.mx_internal;
+   import flash.events.Event;
+   import mx.core.IUIComponent;
+   import mx.core.DragSource;
    
    use namespace mx_internal;
    

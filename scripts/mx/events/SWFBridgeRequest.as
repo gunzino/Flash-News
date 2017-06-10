@@ -1,8 +1,8 @@
 package mx.events
 {
    import flash.events.Event;
-   import flash.events.IEventDispatcher;
    import mx.core.mx_internal;
+   import flash.events.IEventDispatcher;
    
    use namespace mx_internal;
    
