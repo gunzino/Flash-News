@@ -581,7 +581,7 @@ package tibia.network
       
       protected static const BLESSING_FIRE_OF_SUNS:int = BLESSING_SPARK_OF_PHOENIX << 1;
       
-      public static const CLIENT_VERSION:uint = 2469;
+      public static const CLIENT_VERSION:uint = 2474;
       
       protected static const CATTACK:int = 161;
       
@@ -4344,7 +4344,7 @@ package tibia.network
          {
             throw new Error("Connection.readSDEAD: Invalid death type " + _loc3_);
          }
-         var _loc4_:Boolean = param1.readUnsignedByte();
+         var _loc4_:Boolean = param1.readBoolean();
          this.m_ServerConnection.dispatchEvent(_loc2_);
       }
       
